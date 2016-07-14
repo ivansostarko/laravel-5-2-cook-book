@@ -11,7 +11,7 @@ use Session;
 use Redirect;
 use Hash;
 use Validator;
-
+use Response;
 
 class AdminsController extends Controller
 {
@@ -109,7 +109,10 @@ class AdminsController extends Controller
             abort(404);
         }
 
-        return view('admin.admins.edit', ['admin' => $admin]);
+
+
+            return Response::json($admin);
+
 
     }
 
@@ -122,7 +125,7 @@ class AdminsController extends Controller
     public function update(Request $request, $id){
 
         if(!$update = App\Admin::find($id)) {
-            abort(404);
+            return Response::json('error');
         }
 
         $update->name=$request->input('name');
@@ -130,15 +133,10 @@ class AdminsController extends Controller
 
 
         if($update->save()){
-            Session::flash('message', 'Profile updated successfully');
-            Session::flash('message_type', 'success');
-            return redirect::to('/admin/admins');
+            return Response::json($update);
         }
         else {
-            Session::flash('message', 'Error while updating profile');
-            Session::flash('message_type', 'danger');
-            return redirect::to('/admin/admins');
-
+            return Response::json('error');
 
         }
 
