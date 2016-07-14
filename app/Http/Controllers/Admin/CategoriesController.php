@@ -93,7 +93,10 @@ class CategoriesController extends Controller
      */
     public function destroy($id){
 
-        $delete = App\Models\Category::find($id);
+        if(!$delete = App\Models\Category::find($id)) {
+            abort(404);
+        }
+
 
         if ($delete->delete()) {
             Session::flash('message', 'File deleted successfully');
@@ -116,7 +119,10 @@ class CategoriesController extends Controller
      */
     public function edit($id){
 
-        $category = App\Models\Category::find($id);
+        if(!$category = App\Models\Category::find($id)) {
+            abort(404);
+        }
+
 
         return view('admin.categories.edit', ['category' => $category]);
 
@@ -130,7 +136,10 @@ class CategoriesController extends Controller
      */
     public function update(Request $request, $id){
 
-        $update = App\Models\Category::find($id);
+        if(!$update = App\Models\Category::find($id)) {
+            abort(404);
+        }
+
 
         $update->name=$request->input('name');
 

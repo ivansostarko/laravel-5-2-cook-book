@@ -23,4 +23,5 @@ Route::group(['middleware' => 'web'], function () {
 
     //Log Viewer
     Route::get('logs', '\Rap2hpoutre\LaravelLogViewer\LogViewerController@index');
+
 });

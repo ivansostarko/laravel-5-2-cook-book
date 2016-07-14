@@ -69,6 +69,10 @@ Route::group(['middleware' => 'admin'], function () {
                 Route::get('/destroy/{id}', 'Admin\ItemsController@destroy')->name('admin.items.destroy');
                 Route::get('/edit/{id}', 'Admin\ItemsController@edit')->name('admin.items.edit');
                 Route::post('/update/{id}','Admin\ItemsController@update')->name('admin.items.update');
+
+                //Ajax datatables
+                Route::get('/ajax', 'Admin\ItemsController@getItemsAjax')->name('admin.items.ajax');
+
             });
 
             //Activities

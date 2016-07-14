@@ -79,7 +79,10 @@ class AdminsController extends Controller
      */
     public function destroy($id){
 
-        $delete = App\Admin::find($id);
+        if(!$delete = App\Admin::find($id)) {
+            abort(404);
+        }
+
 
         if ($delete->delete()) {
             Session::flash('message', 'File deleted successfully');
@@ -102,7 +105,9 @@ class AdminsController extends Controller
      */
     public function edit($id){
 
-        $admin = App\Admin::find($id);
+        if(!$admin = App\Admin::find($id)) {
+            abort(404);
+        }
 
         return view('admin.admins.edit', ['admin' => $admin]);
 
@@ -116,7 +121,9 @@ class AdminsController extends Controller
      */
     public function update(Request $request, $id){
 
-        $update = App\Admin::find($id);
+        if(!$update = App\Admin::find($id)) {
+            abort(404);
+        }
 
         $update->name=$request->input('name');
         $update->email=$request->input('email');
@@ -139,14 +146,20 @@ class AdminsController extends Controller
 
     public function editPassword($id){
 
-        $admin = App\Admin::find($id);
+        if(!$admin = App\Admin::find($id)) {
+            abort(404);
+        }
+
         return view('admin.admins.password', ['admin' => $admin]);
 
     }
 
     public function updatePassword(Request $request, $id){
 
-        $update = App\Admin::find(Auth::guard('admin')->user()->id);
+        if(!$update = App\Admin::find(Auth::guard('admin')->user()->id)) {
+            abort(404);
+        }
+
         $update->password = Hash::make($request->password);
 
         if($update->save()){

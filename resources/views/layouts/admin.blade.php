@@ -8,9 +8,10 @@
     <meta name="csrf-token" content="{{ csrf_token() }}"/>
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <link href="{{ asset('/public/css/all.css') }}" rel="stylesheet" type="text/css"/>
-
-    <!-- Custom styles -->
+    <link href="{{ asset('/node_modules/bootstrap/dist/css/bootstrap.min.css') }}" rel="stylesheet" type="text/css"/>
+    <link href="{{ asset('/public/css/theme.css') }}" rel="stylesheet" type="text/css"/>
+    <link href="{{ asset('/node_modules/cd-font-awesome/index.css') }}" rel="stylesheet" type="text/css"/>
+    <link href="{{ asset('/node_modules/nprogress/nprogress.css') }}" rel="stylesheet" type="text/css"/>
     @yield('styles')
 </head>
 
@@ -82,19 +83,19 @@
         </div>
     </div>
 </div>
-
+<div id='goTop'></div>
 
 
 
 
 
 <!-- JS -->
-<script type="text/javascript" src="{{ asset('/public/js/jquery.min.js') }}"></script>
+<script type="text/javascript" src="{{ asset('/node_modules/jquery/dist/jquery.min.js') }}"></script>
+<script type="text/javascript" src="{{ asset('/node_modules/bootstrap/dist/js/bootstrap.min.js') }}"></script>
 <script type="text/javascript" src="{{ asset('/node_modules/jquery-lazyload/jquery.lazyload.js') }}"></script>
+<script type="text/javascript" src="{{ asset('/node_modules/nprogress/nprogress.js') }}"></script>
+<script type="text/javascript" src="{{ asset('/node_modules/jquery-gotop/src/jquery.gotop.min.js') }}"></script>
 <script type="text/javascript" src="{{ asset('/public/js/main.js') }}"></script>
-
-<script type="text/javascript" src="{{ asset('/public/js/all.js') }}"></script>
-<script type="text/javascript" src="{{ asset('/public/js/bootstrap.min.js') }}"></script>
 
 @yield('scripts')
 </body>

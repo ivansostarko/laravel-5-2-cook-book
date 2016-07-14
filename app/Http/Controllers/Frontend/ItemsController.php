@@ -38,8 +38,10 @@ class ItemsController extends Controller
      */
     public function show($id)
     {
-        //Get item by ID
-        $item = App\Models\Item::find($id);
+
+        if(!$item = App\Models\Item::find($id)) {
+            abort(404);
+        }
 
         //SEO
         SEOMeta::setDescription(str_limit($item->content, $limit = 180, $end = '...'));

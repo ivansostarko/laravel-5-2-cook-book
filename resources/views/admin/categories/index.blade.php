@@ -53,10 +53,10 @@
                 <td>{{ $category->name }}</td>
                 <td>{{ date('d.m.Y', strtotime($category->created_at)) }}</td>
                 <td>
-                  	<a href="{{ route('admin.categories.edit', $category->id) }}"><i class="fa fa-pencil"></i></a>
+                  	<a href="{{ route('admin.categories.edit', $category->id) }}"><i class="fa fa-pencil"  data-toggle="tooltip" data-placement="top" title="Edit Category"></i></a>
 
 
-                    <a href="#" data-toggle="modal" data-target="#modal-delete" title="Delete file"><i class="fa fa-ban"></i></a>
+                    <a href="#" data-toggle="modal" data-target="#modal-delete" title="Delete file"><i class="fa fa-ban" data-toggle="tooltip" data-placement="top" title="Delete Category"></i></a>
 
                 </td>
 
@@ -111,6 +111,9 @@
 
     <script type="text/javascript">
         $(function () {
+
+            //Init tooltip
+            $('[data-toggle="tooltip"]').tooltip();
 
             $('#main_table').dataTable({
                 "bPaginate": true,

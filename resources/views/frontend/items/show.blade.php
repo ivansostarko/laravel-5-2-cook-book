@@ -16,8 +16,19 @@
 
 
 
-  <img src="../{{$item->image}}" class="thumbnail" width="100%">
 
+
+  @if(($item->image != null) ||($item->image != ""))
+    <img class="lazy img-responsive" data-original="../{{ $item->image }}" width="100%" >
+    <noscript>
+      <img class="img-responsive" src="../{{ $item->image }}" width="100%">
+    </noscript>
+  @else
+    <img class="lazy img-responsive" data-original="{{ asset('public/images/no-image.png') }}" width="100%">
+    <noscript>
+      <img class="img-responsive" src="../{{ $item->image }}" width="100%">
+    </noscript>
+  @endif
 
 
     <h2>Ingredients</h2>

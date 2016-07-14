@@ -19,8 +19,10 @@
     "gulp": "^3.9.1",
     "gulp-htmlmin": "^2.0.0",
     "jquery": "^2.2.4",
+    "jquery-gotop": "^1.1.2",
     "jquery-lazyload": "^1.9.7",
     "laravel-elixir": "^5.0.0",
+    "noty": "^2.3.8",
     "nprogress": "^0.2.0"
   },
   "devDependencies": {},

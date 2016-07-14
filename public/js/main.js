@@ -3,6 +3,7 @@ $(document).ready(function(){
     //Init functions
     LazyLoad();
     ProgressBar();
+    scrollToTop();
 
 
     //Lazy Load
@@ -18,6 +19,13 @@ $(document).ready(function(){
         NProgress.start();
         $(window).load(function () {
             NProgress.done();
+        });
+    }
+
+    //Scroll to Top
+    function scrollToTop() {
+        $(function () {
+            $('#goTop').goTop();
         });
     }
 

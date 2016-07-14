@@ -110,7 +110,7 @@
     </div>
 </div>
 
-
+<div id='goTop'></div>
 <!--
 <footer class="footer section section-primary">
     <div class="container">
@@ -137,6 +137,7 @@
 <script type="text/javascript" src="{{ asset('/node_modules/bootstrap/dist/js/bootstrap.min.js') }}"></script>
 <script type="text/javascript" src="{{ asset('/node_modules/jquery-lazyload/jquery.lazyload.js') }}"></script>
 <script type="text/javascript" src="{{ asset('/node_modules/nprogress/nprogress.js') }}"></script>
+<script type="text/javascript" src="{{ asset('/node_modules/jquery-gotop/src/jquery.gotop.min.js') }}"></script>
 <script type="text/javascript" src="{{ asset('/public/js/main.js') }}"></script>
 @yield('scripts')
 

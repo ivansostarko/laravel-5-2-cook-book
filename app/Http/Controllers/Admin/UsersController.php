@@ -85,7 +85,10 @@ class UsersController extends Controller
      */
     public function destroy($id){
 
-        $delete = App\User::find($id);
+
+        if(!$delete = App\User::find($id)) {
+            abort(404);
+        }
 
         if ($delete->delete()) {
             Session::flash('message', 'File deleted successfully');
@@ -108,7 +111,10 @@ class UsersController extends Controller
      */
     public function edit($id){
 
-        $user = App\User::find($id);
+
+        if(!$user = App\User::find($id)) {
+            abort(404);
+        }
 
         return view('admin.users.edit', ['user' => $user]);
 
@@ -122,7 +128,9 @@ class UsersController extends Controller
      */
     public function update(Request $request, $id){
 
-        $update = App\User::find($id);
+        if(!$update = App\User::find($id)) {
+            abort(404);
+        }
 
         $update->name=$request->input('name');
         $update->email=$request->input('email');
@@ -146,7 +154,10 @@ class UsersController extends Controller
 
     public function show($id){
 
-        $user = App\User::find($id);
+        if(!$user = App\User::find($id)) {
+            abort(404);
+        }
+
 
         //Check if user is online
         $is_online = Online::where('user_id', $id)->count();
@@ -161,14 +172,20 @@ class UsersController extends Controller
 
     public function editPassword($id){
 
-        $user = App\User::find($id);
+        if(!$user = App\User::find($id)) {
+            abort(404);
+        }
+
         return view('admin.users.password', ['user' => $user]);
 
     }
 
     public function updatePassword(Request $request, $id){
 
-        $update = App\User::find($id);
+        if(!$update = App\User::find($id)) {
+            abort(404);
+        }
+
         $update->password = Hash::make($request->password);
 
         if($update->save()){
@@ -186,7 +203,10 @@ class UsersController extends Controller
 
     public function verify($id){
 
-        $update = App\User::find($id);
+        if(!$update = App\User::find($id)) {
+            abort(404);
+        }
+
         $update->verified = 1;
 
         $email = App\User::select('email')->where('id', '=', $id)->first();
@@ -209,7 +229,10 @@ class UsersController extends Controller
 
     public function ban($id){
 
-        $update = App\User::find($id);
+        if(!$update = App\User::find($id)) {
+            abort(404);
+        }
+
         $update->banned = 1;
 
         $email = App\User::select('email')->where('id', '=', $id)->first();
@@ -232,7 +255,10 @@ class UsersController extends Controller
 
     public function unban($id){
 
-        $update = App\User::find($id);
+        if(!$update = App\User::find($id)) {
+            abort(404);
+        }
+
         $update->banned = 0;
 
         $email = App\User::select('email')->where('id', '=', $id)->first();

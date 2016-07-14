@@ -11,7 +11,7 @@ use Session;
 use Redirect;
 use Hash;
 use Validator;
-
+use Datatables;
 
 class ItemsController extends Controller
 {
@@ -29,10 +29,47 @@ class ItemsController extends Controller
      */
     public function index()
     {
-        //Get item by ID
-        $items = App\Models\Item::all();
 
-        return view('admin.items.index', ['items' => $items]);
+
+        return view('admin.items.index');
+    }
+
+    /**
+     * Process datatables ajax request.
+     *
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function getItemsAjax()
+    {
+
+        $items = App\Models\Item::
+        join('users', 'items.user_id', '=', 'users.id')
+            ->join('categories', 'items.category_id', '=', 'categories.id')
+            ->select(['items.id', 'items.name', 'users.name as author', 'categories.name as category', 'items.image', 'items.created_at']);
+
+
+
+
+        return Datatables::of($items)
+            ->addColumn('action', function ($item) {
+            return '<a href="items/edit/'.$item->id.'"><i class="fa fa-pencil" data-toggle="tooltip" data-placement="top" title="Edit Item"></i></a>
+                    <a href="items/destroy/'.$item->id.'"><i class="fa fa-ban" data-toggle="tooltip" data-placement="top" title="Delete Item"></i></a>';
+        })
+        ->editColumn(
+            'image', function ($item) {
+            if(($item->image != null) ||($item->image != "")) {
+
+                return "<img class=\"lazy img-responsive\" src=\"../$item->image \" width=\"150\" alt=\"$item->name\">";
+            }
+            else {
+                return "<img class=\"lazy img-responsive\" src=\"../../public/images/no-image.png\" alt=\"$item->name\" width=\"150\">";
+            }
+
+        })
+            ->editColumn('created_at', function ($item) {
+                return $item->created_at->format('d.m.Y');
+            })
+            ->make(true);
     }
 
     /**
@@ -43,7 +80,10 @@ class ItemsController extends Controller
      */
     public function destroy($id){
 
-        $delete = App\Models\Item::find($id);
+        if(!$delete = App\Models\Item::find($id)) {
+            abort(404);
+        }
+
 
         if ($delete->delete()) {
             Session::flash('message', 'File deleted successfully');
@@ -66,7 +106,10 @@ class ItemsController extends Controller
      */
     public function edit($id){
 
-        $items = App\Models\Item::find($id);
+        if(!$items = App\Models\Item::find($id)) {
+            abort(404);
+        }
+
 
         return view('admin.items.edit', ['items' => $items]);
 
@@ -80,8 +123,10 @@ class ItemsController extends Controller
      */
     public function update(Request $request, $id){
 
-        
-        $update = App\Models\Item::find($id);
+        if(!$update = App\Models\Item::find($id)) {
+            abort(404);
+        }
+
         $update->name = $request->input('name');
         $update->category_id = $request->input('category');
         $update->ingredients = $request->input('ingredients');

@@ -20,56 +20,20 @@
         </div>
     @endif
 
-    <table class="table" id="main_table">
+    <table class="table table-bordered" id="items-table">
         <thead>
         <tr>
             <th>ID</th>
             <th>Image</th>
             <th>Name</th>
-            <th>Author</th>
+            <th>User</th>
             <th>Category</th>
-            <th>Date published</th>
-            <th>Actions</th>
-
+            <th>Created</th>
+            <th>Action</th>
         </tr>
         </thead>
-        <tbody>
-
-
-        @foreach($items as $item)
-            <tr>
-                <td>{{ $item->id }}</td>
-                <td><a href="{{ route('web.item', $item->id) }}">
-                        @if(($item->image != null) ||($item->image != ""))
-                            <img class="lazy img-responsive" data-original="../{{ $item->image }}" width="150" alt="{{ $item->name }}">
-                            <noscript>
-                                <img class="img-responsive" src="../{{ $item->image }}" width="150" alt="{{ $item->name }}">
-                            </noscript>
-                        @else
-                            <img class="lazy img-responsive" data-original="{{ asset('public/images/no-image.png') }}" alt="{{ $item->name }}" width="150">
-                            <noscript>
-                                <img class="img-responsive" src="../{{ $item->image }}" width="150"  alt="{{ $item->name }}">
-                            </noscript>
-                        @endif
-                    </a></td>
-                <td><a href="{{ route('web.item', $item->id) }}">{{ $item->name }}</a></td>
-                <td>{{ $item->users->name }}</td>
-                <td>{{ $item->categories->name}}</td>
-                <td>{{ date('d.m.Y', strtotime($item->created_at)) }}</td>
-                <td>
-                  	<a href="{{ route('admin.items.edit', $item->id) }}"><i class="fa fa-pencil"></i></a>
-
-
-                    <a href="{{ route('admin.items.destroy', $item->id) }}" title="Delete file"><i class="fa fa-ban"></i></a>
-
-                </td>
-
-            </tr>
-        @endforeach
-
-        </tbody>
-
     </table>
+
 
 @endsection
 
@@ -87,14 +51,22 @@
     <script type="text/javascript">
         $(function () {
 
-            $('#main_table').dataTable({
-                "bPaginate": true,
-                "iDisplayLength": 25,
-                "bLengthChange": true,
-                "bFilter": true,
-                "bSort": false,
-                "bInfo": true,
-                "bAutoWidth": true
+            //Init tooltip
+            $('[data-toggle="tooltip"]').tooltip();
+
+            $('#items-table').DataTable({
+                processing: true,
+                serverSide: true,
+                ajax: '{!! route('admin.items.ajax') !!}',
+                columns: [
+                    { data: 'id', name: 'id' },
+                    { data: 'image', name: 'image' },
+                    { data: 'name', name: 'name' },
+                    { data: 'author', name: 'author' },
+                    { data: 'category', name: 'category' },
+                    { data: 'created_at', name: 'created_at' },
+                    {data: 'action', name: 'action', orderable: false, searchable: false}
+                ]
 
             });
         });

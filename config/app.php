@@ -164,6 +164,7 @@ return [
         Paplauskas\ApiDocs\ApiDocsServiceProvider::class,
         MarcinOrlowski\ResponseBuilder\ResponseBuilderServiceProvider::class,
         Rap2hpoutre\LaravelLogViewer\LaravelLogViewerServiceProvider::class,
+        Yajra\Datatables\DatatablesServiceProvider::class,
 
 
 
@@ -237,7 +238,7 @@ return [
         'Settings' => Labkod\LaravelConfig\LaravelConfigFacade::class,
         'JWTAuth' => Tymon\JWTAuth\Facades\JWTAuth::class,
         'JWTFactory' => Tymon\JWTAuth\Facades\JWTFactory::class,
-
+        'Datatables' => Yajra\Datatables\Facades\Datatables::class,
 
 
 

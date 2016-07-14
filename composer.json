@@ -25,7 +25,8 @@
         "paplauskas/apidocs": ">=0.1",
         "marcin-orlowski/laravel-api-response-builder": "^2.1",
         "predis/predis": "^1.1",
-        "rap2hpoutre/laravel-log-viewer": "^0.7.0"
+        "rap2hpoutre/laravel-log-viewer": "^0.7.0",
+        "yajra/laravel-datatables-oracle": "~6.0"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",
