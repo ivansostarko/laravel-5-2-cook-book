@@ -163,7 +163,7 @@ return [
         Tymon\JWTAuth\Providers\JWTAuthServiceProvider::class,
         Paplauskas\ApiDocs\ApiDocsServiceProvider::class,
         MarcinOrlowski\ResponseBuilder\ResponseBuilderServiceProvider::class,
-
+        Rap2hpoutre\LaravelLogViewer\LaravelLogViewerServiceProvider::class,
 
 
 

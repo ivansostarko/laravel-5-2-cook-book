@@ -39,7 +39,19 @@
         @foreach($items as $item)
             <tr>
                 <td>{{ $item->id }}</td>
-                <td><a href="{{ route('web.item', $item->id) }}"><img src="../{{ $item->image }}" width="150px" /></a></td>
+                <td><a href="{{ route('web.item', $item->id) }}">
+                        @if(($item->image != null) ||($item->image != ""))
+                            <img class="lazy img-responsive" data-original="../{{ $item->image }}" width="150" alt="{{ $item->name }}">
+                            <noscript>
+                                <img class="img-responsive" src="../{{ $item->image }}" width="150" alt="{{ $item->name }}">
+                            </noscript>
+                        @else
+                            <img class="lazy img-responsive" data-original="{{ asset('public/images/no-image.png') }}" alt="{{ $item->name }}" width="150">
+                            <noscript>
+                                <img class="img-responsive" src="../{{ $item->image }}" width="150"  alt="{{ $item->name }}">
+                            </noscript>
+                        @endif
+                    </a></td>
                 <td><a href="{{ route('web.item', $item->id) }}">{{ $item->name }}</a></td>
                 <td>{{ $item->users->name }}</td>
                 <td>{{ $item->categories->name}}</td>
@@ -63,13 +75,13 @@
 
 @section('styles')
     <link href="{{ asset('/public/plugins/validation/css/formValidation.min.css') }}" rel="stylesheet" type="text/css"/>
-    <link href="{{ asset('/public/plugins/datatables/jquery.dataTables.min.css') }}" rel="stylesheet" type="text/css"/>
-    <link href="{{ asset('/public/plugins/datatables/dataTables.bootstrap.css') }}" rel="stylesheet" type="text/css"/>
+    <link href="{{ asset('/node_modules/datatables/media/css/jquery.dataTables.min.css') }}" rel="stylesheet" type="text/css"/>
+    <link href="{{ asset('/node_modules/datatables-bootstrap/css/dataTables.bootstrap.min.css') }}" rel="stylesheet" type="text/css"/>
 @endsection
 
 @section('scripts')
-    <script src="{{ asset('/public/plugins/datatables/jquery.dataTables.min.js') }}"></script>
-    <script src="{{ asset('/public/plugins/datatables/dataTables.bootstrap.min.js') }}"></script>
+    <script src="{{ asset('/node_modules/datatables/media/js/jquery.dataTables.min.js') }}"></script>
+    <script src="{{ asset('/node_modules/datatables-bootstrap/js/dataTables.bootstrap.min.js') }}"></script>
 
 
     <script type="text/javascript">

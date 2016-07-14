@@ -1,6 +1,7 @@
 <?php
 
 Route::group(['middleware' => 'web'], function () {
+
     //Root page - Homepage
     Route::get('/', 'Frontend\HomepageController@index')->name('web.homepage');
 
@@ -20,5 +21,6 @@ Route::group(['middleware' => 'web'], function () {
     //Feed - RSS
     Route::get('feed', 'Frontend\FeedController@index')->name('web.feed');
 
-
+    //Log Viewer
+    Route::get('logs', '\Rap2hpoutre\LaravelLogViewer\LogViewerController@index');
 });

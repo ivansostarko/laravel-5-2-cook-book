@@ -16,3 +16,10 @@
 
     Oops! User already verified
 @endsection
+
+@section('styles')
+@endsection
+
+
+@section('scripts')
+@endsection

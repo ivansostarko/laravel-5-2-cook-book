@@ -9,6 +9,7 @@ use Request;
 use OpenGraph;
 use Twitter;
 use SEOMeta;
+use Redis;
 
 
 class HomepageController extends Controller
@@ -44,6 +45,8 @@ class HomepageController extends Controller
 
         //Get items for homepage
         $items = App\Models\Item::take(20)->paginate(30);
+        $user = Redis::get('user:profile:');
+
         return view('frontend.homepage.index', ['items' => $items]);
     }
 }

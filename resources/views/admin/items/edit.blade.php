@@ -115,7 +115,7 @@
 @endsection
 
 @section('scripts')
-    <script type="text/javascript" src="{{ asset('/public/plugins/ckeditor/ckeditor.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('/node_modules/ckeditor/ckeditor.js') }}"></script>
     <script type="text/javascript" src="{{ asset('/public/plugins/validation/js/formValidation.min.js') }}"></script>
     <script type="text/javascript" src="{{ asset('/public/plugins/validation/js/framework/bootstrap.min.js') }}"></script>
 

@@ -24,7 +24,21 @@
 
 		<div class="row">
 			<div class="col-md-7">
-					<a href="{{ route('web.item', $item->id) }}"><img class="img-responsive" src="../{{ $item->image }}" alt="{{ $item->name }}"></a>
+					<a href="{{ route('web.item', $item->id) }}">
+
+						@if(($item->image != null) ||($item->image != ""))
+							<img class="lazy img-responsive" data-original="../{{ $item->image }}" width="443" height="249" alt="{{ $item->name }}">
+							<noscript>
+								<img class="img-responsive" src="../{{ $item->image }}" width="443" height="249" alt="{{ $item->name }}">
+							</noscript>
+						@else
+							<img class="lazy img-responsive" data-original="{{ asset('public/images/no-image.png') }}" alt="{{ $item->name }}" width="443" height="249">
+							<noscript>
+								<img class="img-responsive" src="{{ $item->image }}" width="443" height="249" alt="{{ $item->name }}">
+							</noscript>
+						@endif
+
+					</a>
 			</div>
 			<div class="col-md-5">
 				<h3><a href="{{ route('web.item', $item->id) }}">{{ $item->name }}</a></h3>

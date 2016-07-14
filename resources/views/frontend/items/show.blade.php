@@ -46,3 +46,10 @@
     </tr>
   </table>
 @endsection
+
+@section('styles')
+@endsection
+
+
+@section('scripts')
+@endsection

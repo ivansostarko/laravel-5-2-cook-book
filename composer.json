@@ -23,7 +23,9 @@
         "barryvdh/laravel-cors": "^0.8.0",
         "tymon/jwt-auth": "0.5.*",
         "paplauskas/apidocs": ">=0.1",
-        "marcin-orlowski/laravel-api-response-builder": "^2.1"
+        "marcin-orlowski/laravel-api-response-builder": "^2.1",
+        "predis/predis": "^1.1",
+        "rap2hpoutre/laravel-log-viewer": "^0.7.0"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",

@@ -90,6 +90,9 @@
 
 <!-- JS -->
 <script type="text/javascript" src="{{ asset('/public/js/jquery.min.js') }}"></script>
+<script type="text/javascript" src="{{ asset('/node_modules/jquery-lazyload/jquery.lazyload.js') }}"></script>
+<script type="text/javascript" src="{{ asset('/public/js/main.js') }}"></script>
+
 <script type="text/javascript" src="{{ asset('/public/js/all.js') }}"></script>
 <script type="text/javascript" src="{{ asset('/public/js/bootstrap.min.js') }}"></script>
 

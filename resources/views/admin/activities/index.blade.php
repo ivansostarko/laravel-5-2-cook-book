@@ -58,14 +58,13 @@
 @endsection
 
 @section('styles')
-    <link href="{{ asset('/public/plugins/datatables/jquery.dataTables.min.css') }}" rel="stylesheet" type="text/css"/>
-    <link href="{{ asset('/public/plugins/datatables/dataTables.bootstrap.css') }}" rel="stylesheet" type="text/css"/>
+    <link href="{{ asset('/node_modules/datatables/media/css/jquery.dataTables.min.css') }}" rel="stylesheet" type="text/css"/>
+    <link href="{{ asset('/node_modules/datatables-bootstrap/css/dataTables.bootstrap.min.css') }}" rel="stylesheet" type="text/css"/>
 @endsection
 
 @section('scripts')
-    <script src="{{ asset('/public/plugins/datatables/jquery.dataTables.min.js') }}"></script>
-    <script src="{{ asset('/public/plugins/datatables/dataTables.bootstrap.min.js') }}"></script>
-
+    <script src="{{ asset('/node_modules/datatables/media/js/jquery.dataTables.min.js') }}"></script>
+    <script src="{{ asset('/node_modules/datatables-bootstrap/js/dataTables.bootstrap.min.js') }}"></script>
 
     <script type="text/javascript">
         $(function () {

@@ -37,7 +37,19 @@
         @foreach($categories as $category)
             <tr>
                 <td>{{ $category->id }}</td>
-                <td><img src="../{{ $category->image }}" width="150px" /></td>
+                <td>
+                    @if(($category->image != null) ||($category->image != ""))
+                        <img class="lazy img-responsive" data-original="../{{ $category->image }}" width="150" alt="{{ $category->name }}">
+                        <noscript>
+                            <img class="img-responsive" src="../{{ $category->image }}" width="150" alt="{{ $category->name }}">
+                        </noscript>
+                    @else
+                        <img class="lazy img-responsive" data-original="{{ asset('public/images/no-image.png') }}" alt="{{ $category->name }}" width="150">
+                        <noscript>
+                            <img class="img-responsive" src="../{{ $category->image }}" width="150"  alt="{{ $category->name }}">
+                        </noscript>
+                    @endif
+                </td>
                 <td>{{ $category->name }}</td>
                 <td>{{ date('d.m.Y', strtotime($category->created_at)) }}</td>
                 <td>
@@ -88,13 +100,13 @@
 @endsection
 
 @section('styles')
-      <link href="{{ asset('/public/plugins/datatables/jquery.dataTables.min.css') }}" rel="stylesheet" type="text/css"/>
-    <link href="{{ asset('/public/plugins/datatables/dataTables.bootstrap.css') }}" rel="stylesheet" type="text/css"/>
+    <link href="{{ asset('/node_modules/datatables/media/css/jquery.dataTables.min.css') }}" rel="stylesheet" type="text/css"/>
+    <link href="{{ asset('/node_modules/datatables-bootstrap/css/dataTables.bootstrap.min.css') }}" rel="stylesheet" type="text/css"/>
 @endsection
 
 @section('scripts')
-    <script src="{{ asset('/public/plugins/datatables/jquery.dataTables.min.js') }}"></script>
-    <script src="{{ asset('/public/plugins/datatables/dataTables.bootstrap.min.js') }}"></script>
+    <script src="{{ asset('/node_modules/datatables/media/js/jquery.dataTables.min.js') }}"></script>
+    <script src="{{ asset('/node_modules/datatables-bootstrap/js/dataTables.bootstrap.min.js') }}"></script>
 
 
     <script type="text/javascript">

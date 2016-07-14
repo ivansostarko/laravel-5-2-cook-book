@@ -32,6 +32,7 @@ elixir(function(mix) {
 });
 
 //CSS
+/*
 elixir(function(mix) {
     mix.styles([
         'default.css',
@@ -39,12 +40,15 @@ elixir(function(mix) {
         'nprogress.css'
     ]);
 });
+*/
+
 
 //Javascript
+/*
 elixir(function(mix) {
     mix.scripts([
        'nprogress.js',
         'app.js'
     ]);
 });
-
+*/
