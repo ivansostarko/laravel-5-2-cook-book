@@ -5,10 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7a67823b-d97c-432d-a392-753e59b2cc38" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/Http/Middleware/MyRobotsMiddleware.php" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.codeclimate.yml" afterPath="$PROJECT_DIR$/.codeclimate.yml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gitignore" afterPath="$PROJECT_DIR$/.gitignore" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/README.md" afterPath="$PROJECT_DIR$/README.md" />
     </list>
     <ignored path="cook.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -29,25 +27,12 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="LICENSE" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/LICENSE">
+      <file leaf-file-name=".gitignore" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/.gitignore">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+            <state relative-caret-position="54">
+              <caret line="3" column="1" selection-start-line="3" selection-start-column="1" selection-end-line="3" selection-end-column="1" />
               <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="README.md" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/README.md">
-          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-            <state split_layout="SPLIT">
-              <first_editor relative-caret-position="126">
-                <caret line="7" column="140" selection-start-line="7" selection-start-column="140" selection-end-line="7" selection-end-column="140" />
-                <folding />
-              </first_editor>
-              <second_editor />
             </state>
           </provider>
         </entry>
@@ -65,7 +50,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/resources/views/admin/users/show.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/admin/settings/index.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/admin/profile/index.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/errors/user-verification.blade.php" />
@@ -116,6 +100,7 @@
         <option value="$PROJECT_DIR$/storage/logs/laravel.log" />
         <option value="$PROJECT_DIR$/vendor/composer/autoload_static.php" />
         <option value="$PROJECT_DIR$/README.md" />
+        <option value="$PROJECT_DIR$/.gitignore" />
       </list>
     </option>
   </component>
@@ -318,7 +303,7 @@
       <workItem from="1468532757324" duration="854000" />
       <workItem from="1468533632591" duration="143000" />
       <workItem from="1468968478953" duration="166000" />
-      <workItem from="1470524748284" duration="17564000" />
+      <workItem from="1470524748284" duration="18430000" />
     </task>
     <task id="LOCAL-00002" summary="test">
       <created>1468532896400</created>
@@ -345,7 +330,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="270532000" />
+    <option name="totallyTimeSpent" value="271398000" />
   </component>
   <component name="TodoView" selected-index="2">
     <todo-panel id="selected-file">
@@ -408,7 +393,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/vendor/symfony/http-kernel/HttpCache/Store.php" />
     <entry file="file://$PROJECT_DIR$/app/Http/Routes/auth.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="36">
@@ -807,11 +791,19 @@
     <entry file="file://$PROJECT_DIR$/README.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
-          <first_editor relative-caret-position="126">
-            <caret line="7" column="140" selection-start-line="7" selection-start-column="140" selection-end-line="7" selection-end-column="140" />
+          <first_editor relative-caret-position="54">
+            <caret line="3" column="0" selection-start-line="3" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
             <folding />
           </first_editor>
           <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="54">
+          <caret line="3" column="1" selection-start-line="3" selection-start-column="1" selection-end-line="3" selection-end-column="1" />
+          <folding />
         </state>
       </provider>
     </entry>
