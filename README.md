@@ -11,13 +11,13 @@
 
 ## Demo User
 ![](https://raw.githubusercontent.com/IvanSostarko/laravel-5-2-cook-book/master/public/images/screen1.jpg)
-[Login here](http://demo.ivan-sostarko.com/cookbook/login)
+* [Login here](http://demo.ivan-sostarko.com/cookbook/login)
 * Email: user@ivan-sostarko.com
 * Password: gpr8g103
 
 ## Demo Admin 
 ![](https://raw.githubusercontent.com/IvanSostarko/laravel-5-2-cook-book/master/public/images/screen2.jpg)
-[Login here](http://demo.ivan-sostarko.com/cookbook/login)
+* [Login here](http://demo.ivan-sostarko.com/cookbook/login)
 * Email: admin@ivan-sostarko.com
 * Password: gpr8g103
 
