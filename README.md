@@ -5,7 +5,7 @@
 [![Build Status](https://travis-ci.org/IvanSostarko/laravel-5-2-cook-book.svg?branch=master)](https://travis-ci.org/IvanSostarko/laravel-5-2-cook-book)
 [![Code Climate](https://codeclimate.com/github/IvanSostarko/laravel-5-2-cook-book/badges/gpa.svg)](https://codeclimate.com/github/IvanSostarko/laravel-5-2-cook-book)
 [![Test Coverage](https://codeclimate.com/github/IvanSostarko/laravel-5-2-cook-book/badges/coverage.svg)](https://codeclimate.com/github/IvanSostarko/laravel-5-2-cook-book/coverage)
-[![License](https://poser.pugx.org/laravel/framework/license.svg)](https://packagist.org/packages/laravel/framework)
+[![License](https://poser.pugx.org/laravel/framework/license.svg)](https://github.com/IvanSostarko/laravel-5-2-cook-book/blob/master/LICENSE)
 
 ## Online demo
 [http://demo.ivan-sostarko.com/cookbook/](http://demo.ivan-sostarko.com/cookbook/)
