@@ -6,11 +6,17 @@
 [![Code Climate](https://codeclimate.com/github/IvanSostarko/laravel-5-2-cook-book/badges/gpa.svg)](https://codeclimate.com/github/IvanSostarko/laravel-5-2-cook-book)
 [![Test Coverage](https://codeclimate.com/github/IvanSostarko/laravel-5-2-cook-book/badges/coverage.svg)](https://codeclimate.com/github/IvanSostarko/laravel-5-2-cook-book/coverage)
 
-## Demo screen User
+## Demo User
 ![](https://raw.githubusercontent.com/IvanSostarko/laravel-5-2-cook-book/master/public/images/screen1.jpg)
+* [Login](http://demo.ivan-sostarko.com/cookbook)
+* Email: user@ivan-sostarko.com
+* Password: gpr8g103
 
-## Demo screen Admin
+## Demo Admin 
 ![](https://raw.githubusercontent.com/IvanSostarko/laravel-5-2-cook-book/master/public/images/screen2.jpg)
+* [Login](http://demo.ivan-sostarko.com/cookbook)
+* Email: admin@ivan-sostarko.com
+* Password: gpr8g103
 
 
 ## Wiki
