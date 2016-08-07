@@ -2554,56 +2554,7 @@
             ],
             "time": "2016-03-23 19:16:40"
         },
-        {
-            "name": "spatie/laravel-robots-middleware",
-            "version": "1.0.3",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/spatie/laravel-robots-middleware.git",
-                "reference": "843d09705a581b1efb9377605381a439bacb3ad5"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/spatie/laravel-robots-middleware/zipball/843d09705a581b1efb9377605381a439bacb3ad5",
-                "reference": "843d09705a581b1efb9377605381a439bacb3ad5",
-                "shasum": ""
-            },
-            "require": {
-                "illuminate/http": "^5.1",
-                "php": "^7.0"
-            },
-            "require-dev": {
-                "orchestra/testbench": "^3.2",
-                "phpunit/phpunit": "4.*"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "Spatie\\RobotsMiddleware\\": "src"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Sebastian De Deyne",
-                    "email": "sebastian@spatie.be",
-                    "homepage": "https://spatie.be",
-                    "role": "Developer"
-                }
-            ],
-            "description": "Add an `all` or `none` robots header to your requests via a middleware in Laravel",
-            "homepage": "https://github.com/spatie/laravel-robots-middleware",
-            "keywords": [
-                "index",
-                "robots",
-                "seo",
-                "spatie"
-            ],
-            "time": "2016-01-12 12:28:05"
-        },
+
         {
             "name": "swiftmailer/swiftmailer",
             "version": "v5.4.2",

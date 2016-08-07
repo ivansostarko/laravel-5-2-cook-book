@@ -45,7 +45,7 @@ class HomepageController extends Controller
 
         //Get items for homepage
         $items = App\Models\Item::take(20)->paginate(30);
-        $user = Redis::get('user:profile:');
+        //$user = Redis::get('user:profile:');
 
         return view('frontend.homepage.index', ['items' => $items]);
     }

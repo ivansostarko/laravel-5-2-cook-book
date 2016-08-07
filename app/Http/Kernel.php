@@ -33,7 +33,6 @@ class Kernel extends HttpKernel
             \App\Http\Middleware\EncryptCookies::class,
             \Illuminate\Cookie\Middleware\AddQueuedCookiesToResponse::class,
             \App\Http\Middleware\VerifyCsrfToken::class,
-            \App\Http\Middleware\MyRobotsMiddleware::class,
         ],
 
         'admin' => [

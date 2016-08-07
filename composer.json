@@ -15,7 +15,6 @@
         "watson/sitemap": "2.0.*",
         "roumen/feed": "^2.10",
         "jrean/laravel-user-verification": "^2.2",
-        "spatie/laravel-robots-middleware": "^1.0",
         "spatie/activitylog": "^2.4",
         "kim/activity": "^1.1",
         "oprudkyi/laravel-mail-logger": "^1.0",

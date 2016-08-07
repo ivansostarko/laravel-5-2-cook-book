@@ -23,7 +23,7 @@ class CreateForeignKeys extends Migration {
 						->onDelete('set null')
 						->onUpdate('set null');
 		});
-		Schema::table('activity_logs', function(Blueprint $table) {
+		Schema::table('activity_log', function(Blueprint $table) {
 			$table->foreign('user_id')->references('id')->on('users')
 						->onDelete('no action')
 						->onUpdate('no action');
