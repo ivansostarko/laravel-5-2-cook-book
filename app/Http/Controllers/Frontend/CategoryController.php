@@ -31,7 +31,7 @@ class CategoryController extends Controller
     {
 
         //Get item by ID
-        $items = App\Models\Item::where('category_id', '=', $id)->paginate(15);
+        $items = App\Models\Item::where('category_id', '=', $id)->orderBy('created_at', 'desc')->paginate(15);
         $category = App\Models\Category::find($id);
 
         //SEO

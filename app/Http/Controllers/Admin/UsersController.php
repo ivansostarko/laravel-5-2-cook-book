@@ -33,7 +33,7 @@ class UsersController extends Controller
     public function index()
     {
 
-        $users = App\User::all();
+        $users = App\User::orderBy('created_at', 'desc')->get();
 
          return view('admin.users.index', ['users' => $users]);
     }

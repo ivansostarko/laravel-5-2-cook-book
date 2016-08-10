@@ -102,7 +102,7 @@ class ItemsController extends Controller
      */
     public function index()
     {
-        $items = App\Models\Item::where('user_id', '=', Auth::user()->id)->get();
+        $items = App\Models\Item::where('user_id', '=', Auth::user()->id)->orderBy('created_at', 'desc')->get();
 
         return view('frontend.items.index', ['items' => $items]);
 

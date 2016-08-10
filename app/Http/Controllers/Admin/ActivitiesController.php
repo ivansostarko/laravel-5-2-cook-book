@@ -28,7 +28,7 @@ class ActivitiesController extends Controller
     public function index()
     {
         //Get number of users
-        $activities = Activity::with('user')->latest()->limit(100)->get();
+        $activities = Activity::with('user')->latest()->limit(100)->orderBy('created_at', 'desc')->get();
 
 
 

@@ -32,7 +32,7 @@ class CategoriesController extends Controller
     public function index()
     {
         //Get item by ID
-        $categories = App\Models\Category::all();
+        $categories = App\Models\Category::orderBy('created_at', 'desc')->get();
 
         return view('admin.categories.index', ['categories' => $categories]);
     }

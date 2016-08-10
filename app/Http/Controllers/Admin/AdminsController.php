@@ -30,7 +30,7 @@ class AdminsController extends Controller
     public function index()
     {
         //Get item by ID
-        $admins = App\Admin::all();
+        $admins = App\Admin::orderBy('created_at', 'desc')->get();
 
         return view('admin.admins.index', ['admins' => $admins]);
     }
