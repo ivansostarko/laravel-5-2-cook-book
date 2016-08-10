@@ -25,7 +25,7 @@ Results for: {{ $query}}
 			  <div class="col-md-7">
 				  <a href="{{ route('web.item', $item->id) }}">
 					  @if(($item->image != null) ||($item->image != ""))
-						  <img class="lazy img-responsive" data-original="../{{ $item->image }}" width="443" height="249" alt="{{ $item->name }}">
+						  <img class="lazy img-responsive" data-original="{{ $item->image }}" width="443" height="249" alt="{{ $item->name }}">
 						  <noscript>
 							  <img class="img-responsive" src="../{{ $item->image }}" width="443" height="249" alt="{{ $item->name }}">
 						  </noscript>
@@ -48,7 +48,7 @@ Results for: {{ $query}}
 
 	  @endforeach
 
-	  {{ $items->links() }}
+
   @endif
 
 

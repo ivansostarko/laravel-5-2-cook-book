@@ -73,8 +73,8 @@ class ItemsController extends Controller
 
         $query = \Request::input('search');
 
-        //https://github.com/jarektkaczyk/eloquence/wiki/Builder-searchable-and-more
-        $items =  App\Models\Item::search($query)->paginate(15);
+        #https://github.com/jarektkaczyk/eloquence/wiki/Builder-searchable-and-more
+        $items =  App\Models\Item::search($query)->orderBy('created_at', 'desc')->get();
 
 
         //SEO
