@@ -1,14 +1,16 @@
 # Laravel 5.2 CookBook
-> This is a simple CookBook app with RESTful API.
+> Simple CookBook Web App with RESTful API.
 > This is built on Laravel Framework 5.2.
 
 [![Build Status](https://travis-ci.org/IvanSostarko/laravel-5-2-cook-book.svg?branch=master)](https://travis-ci.org/IvanSostarko/laravel-5-2-cook-book)
 [![Code Climate](https://codeclimate.com/github/IvanSostarko/laravel-5-2-cook-book/badges/gpa.svg)](https://codeclimate.com/github/IvanSostarko/laravel-5-2-cook-book)
-[![Test Coverage](https://codeclimate.com/github/IvanSostarko/laravel-5-2-cook-book/badges/coverage.svg)](https://codeclimate.com/github/IvanSostarko/laravel-5-2-cook-book/coverage)
-[![License](https://poser.pugx.org/laravel/framework/license.svg)](https://github.com/IvanSostarko/laravel-5-2-cook-book/blob/master/LICENSE)
+[![license](https://img.shields.io/github/license/mashape/apistatus.svg?maxAge=2592000)](https://github.com/IvanSostarko/laravel-5-2-cook-book/blob/master/LICENSEE)
 
 ## Online demo
 [http://demo.ivan-sostarko.com/cookbook/](http://demo.ivan-sostarko.com/cookbook/)
+
+## Mobile App
+Check Mobile App for this project: [https://github.com/IvanSostarko/ionic2-cookbook](https://github.com/IvanSostarko/ionic2-cookbook)
 
 ## Demo User
 ![](https://raw.githubusercontent.com/IvanSostarko/laravel-5-2-cook-book/master/public/images/screen1.jpg)
