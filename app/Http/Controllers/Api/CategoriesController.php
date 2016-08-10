@@ -30,7 +30,7 @@ class CategoriesController extends Controller
     public function getItems($id)
     {
         //Return all categories for homepage view in Ionic App
-        $items = App\Models\Item::select('name', 'image', 'content', 'time')->where('category_id', $id)->get();
+        $items = App\Models\Item::select('id', 'name', 'image', 'content', 'time')->where('category_id', $id)->get();
 
         //If record exist
         if ($items->first()) {

@@ -30,7 +30,7 @@
 
                 <form method="get" id="searchform" class="search_form" action="{{ route('web.search') }}">
                     <div class="input-group">
-                        <input type="text" class="form-control searchform" placeholder="Search reciept" name="search">
+                        <input type="text" class="form-control searchform" placeholder="{{trans('phrases.search_receipts')}}" name="search">
                         <span class="input-group-btn">
         <button class="btn search-button" type="submit"></button>
 
@@ -58,7 +58,7 @@
     <div class="container">
         <div class="navbar-header">
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-ex-collapse"><span
-                        class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span
+                        class="sr-only">{{trans('phrases.toggle_navigation')}} </span><span class="icon-bar"></span><span
                         class="icon-bar"></span><span class="icon-bar"></span></button>
 
         </div>
@@ -111,23 +111,7 @@
 </div>
 
 <div id='goTop'></div>
-<!--
-<footer class="footer section section-primary">
-    <div class="container">
-        <div class="row">
-            <div class="col-sm-6">
-                Polytehnic of Zagreb
-            </div>
-            <div class="col-sm-6">
-                <p class="text-info text-right">
-                    Developed by: Ivan Šoštarko
-                </p>
 
-            </div>
-        </div>
-    </div>
-</footer>
--->
 
 <!-- Google Analytics code -->
 {{ $google_analytic  }}
