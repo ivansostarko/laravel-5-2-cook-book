@@ -40,15 +40,9 @@ http://www.tutorials.kode-blog.com/laravel-5-ajax-tutorial
                 <td>{{ $admin->email }}</td>
                 <td>{{ date('d.m.Y', strtotime($admin->created_at)) }}</td>
                 <td>
-
-                    <button class="btn btn-warning btn-xs btn-detail edit-modal" value="{{$admin->id}}"><i class="fa fa-pencil"></i> Edit</button>
-                    <button class="btn btn-danger btn-xs btn-delete delete-task" value="{{$admin->id}}"><i class="fa fa-ban"></i> Delete</button>
-
-
-
-                    <a href="{{ route('admin.admins.password.edit', $admin->id) }}" title="Edit password"><i class="fa fa-key"></i></a>
-
-
+                    <button class="btn btn-warning btn-xs btn-detail edit-modal" data-toggle="tooltip" data-placement="top" title="Edit Admin" value="{{$admin->id}}"><i class="fa fa-pencil" ></i> Edit</button>
+                    <button class="btn btn-danger btn-xs btn-delete delete-task" data-toggle="tooltip" data-placement="top" title="Delete Admin" value="{{$admin->id}}"><i class="fa fa-ban" ></i> Delete</button>
+                    <button class="btn btn-danger btn-xs btn-delete edit-password" data-toggle="tooltip" data-placement="top" title="Edit Password" value="{{$admin->id}}"><i class="fa fa-key" ></i> Edit password</button>
                 </td>
 
             </tr>
@@ -107,6 +101,9 @@ http://www.tutorials.kode-blog.com/laravel-5-ajax-tutorial
 
     <script type="text/javascript">
         $(function () {
+
+            //Init tooltip
+            $('[data-toggle="tooltip"]').tooltip();
 
             $('#main_table').dataTable({
                 "bPaginate": true,

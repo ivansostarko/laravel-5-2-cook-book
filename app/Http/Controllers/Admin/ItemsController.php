@@ -53,8 +53,8 @@ class ItemsController extends Controller
 
         return Datatables::of($items)
             ->addColumn('action', function ($item) {
-            return '<a href="items/edit/'.$item->id.'"><i class="fa fa-pencil" data-toggle="tooltip" data-placement="top" title="Edit Item"></i></a>
-                    <a href="items/destroy/'.$item->id.'"><i class="fa fa-ban" data-toggle="tooltip" data-placement="top" title="Delete Item"></i></a>';
+            return '<a href="items/edit/'.$item->id.'"><i class="fa fa-pencil" data-toggle="tooltip" data-toggle="tooltip" data-placement="top" title="Edit Item" data-placement="top" title="Edit Item"></i></a>
+                    <a data-href="'.route('admin.items.destroy', $item->id) .'" data-toggle="modal" data-target="#confirm-delete"><i class="fa fa-ban" data-toggle="tooltip" data-placement="top" data-toggle="tooltip" data-placement="top" title="Delete " title="Delete Item"></i></a>';
         })
         ->editColumn(
             'image', function ($item) {

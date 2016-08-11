@@ -54,9 +54,7 @@
                 <td>{{ date('d.m.Y', strtotime($category->created_at)) }}</td>
                 <td>
                   	<a href="{{ route('admin.categories.edit', $category->id) }}"><i class="fa fa-pencil"  data-toggle="tooltip" data-placement="top" title="Edit Category"></i></a>
-
-
-                    <a href="#" data-toggle="modal" data-target="#modal-delete" title="Delete file"><i class="fa fa-ban" data-toggle="tooltip" data-placement="top" title="Delete Category"></i></a>
+                    <a href="#"  data-href="{{ route('admin.categories.destroy', $category->id) }}" data-toggle="modal" data-target="#confirm-delete" title="Delete file"><i class="fa fa-ban" data-toggle="tooltip" data-placement="top" title="Delete Category"></i></a>
 
                 </td>
 
@@ -68,30 +66,24 @@
     </table>
 
     {{-- Confirm Delete --}}
-    <div class="modal fade" id="modal-delete" tabIndex="-1">
+    <div class="modal fade" id="confirm-delete" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
+
                 <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal">
-                        ×
-                    </button>
-                    <h4 class="modal-title">Please Confirm</h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title" id="myModalLabel">Confirm Delete</h4>
                 </div>
+
                 <div class="modal-body">
-                    <p class="lead">
-                           Are you sure you want to delete this tag?
-                    </p>
+                    <p>You are about to delete one track, this procedure is irreversible.</p>
+                    <p>Do you want to proceed?</p>
+                    <p class="debug-url"></p>
                 </div>
+
                 <div class="modal-footer">
-                    <form method="GET" action="{{ route('admin.categories.destroy', $category->id) }}">
-                        <input type="hidden" name="_token" value="{{ csrf_token() }}">
-                        <input type="hidden" name="_method" value="DELETE">
-                        <button type="button" class="btn btn-default"
-                                data-dismiss="modal">Close</button>
-                        <button type="submit" class="btn btn-danger">
-                            <i class="fa fa-times-circle"></i> Yes
-                        </button>
-                    </form>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                    <a class="btn btn-danger btn-ok">Delete</a>
                 </div>
             </div>
         </div>
@@ -124,6 +116,10 @@
                 "bInfo": true,
                 "bAutoWidth": true
 
+            });
+
+            $('#confirm-delete').on('show.bs.modal', function(e) {
+                 $(this).find('.btn-ok').attr('href', $(e.relatedTarget).data('href'));
             });
         });
 

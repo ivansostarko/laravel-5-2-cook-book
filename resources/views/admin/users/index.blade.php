@@ -48,13 +48,13 @@
 
 
                 <td>
-                    <a href="{{ route('admin.users.edit', $user->id) }}" title="Edit user"><i class="fa fa-pencil"></i></a>
+                    <a href="{{ route('admin.users.edit', $user->id) }}" title="Edit user"><i class="fa fa-pencil" data-toggle="tooltip" data-placement="top" title="Edit User"></i></a>
 
-                    <a href="{{ route('admin.users.password.edit', $user->id) }}" title="Edit password"><i class="fa fa-key"></i></a>
+                    <a href="{{ route('admin.users.password.edit', $user->id) }}" title="Edit password"><i class="fa fa-key" data-toggle="tooltip" data-placement="top" title="Edit Password"></i></a>
 
-                    <a href="{{ route('admin.users.destroy', $user->id) }}" title="Delete user"><i class="fa fa-ban"></i></a>
+                    <a data-href="{{ route('admin.users.destroy', $user->id) }}" data-toggle="modal" data-target="#confirm-delete"  title="Delete user"><i class="fa fa-ban" data-toggle="tooltip" data-placement="top" title="Delete User"></i></a>
 
-                    <a href="{{ route('admin.users.show', $user->id) }}" title="More details"><i class="fa fa-external-link-square"></i></a>
+                    <a href="{{ route('admin.users.show', $user->id) }}" title="More details"><i class="fa fa-external-link-square" data-toggle="tooltip" data-placement="top" title="More Info"></i></a>
 
                 </td>
             </tr>
@@ -63,22 +63,47 @@
         </tbody>
 
     </table>
+     {{-- Confirm Delete --}}
+     <div class="modal fade" id="confirm-delete" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+         <div class="modal-dialog">
+             <div class="modal-content">
 
+                 <div class="modal-header">
+                     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                     <h4 class="modal-title" id="myModalLabel">Confirm Delete</h4>
+                 </div>
+
+                 <div class="modal-body">
+                     <p>You are about to delete one track, this procedure is irreversible.</p>
+                     <p>Do you want to proceed?</p>
+                     <p class="debug-url"></p>
+                 </div>
+
+                 <div class="modal-footer">
+                     <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                     <a class="btn btn-danger btn-ok">Delete</a>
+                 </div>
+             </div>
+         </div>
+     </div>
 @endsection
 
 @section('styles')
     <link href="{{ asset('/public/plugins/validation/css/formValidation.min.css') }}" rel="stylesheet" type="text/css"/>
-    <link href="{{ asset('/public/plugins/datatables/jquery.dataTables.min.css') }}" rel="stylesheet" type="text/css"/>
-    <link href="{{ asset('/public/plugins/datatables/dataTables.bootstrap.css') }}" rel="stylesheet" type="text/css"/>
+    <link href="{{ asset('/node_modules/datatables/media/css/jquery.dataTables.min.css') }}" rel="stylesheet" type="text/css"/>
+    <link href="{{ asset('/node_modules/datatables-bootstrap/css/dataTables.bootstrap.min.css') }}" rel="stylesheet" type="text/css"/>
 @endsection
 
 @section('scripts')
-    <script src="{{ asset('/public/plugins/datatables/jquery.dataTables.min.js') }}"></script>
-    <script src="{{ asset('/public/plugins/datatables/dataTables.bootstrap.min.js') }}"></script>
+    <script src="{{ asset('/node_modules/datatables/media/js/jquery.dataTables.min.js') }}"></script>
+    <script src="{{ asset('/node_modules/datatables-bootstrap/js/dataTables.bootstrap.min.js') }}"></script>
 
 
     <script type="text/javascript">
         $(function () {
+
+            //Init tooltip
+            $('[data-toggle="tooltip"]').tooltip();
 
             $('#main_table').dataTable({
                 "bPaginate": true,
@@ -90,6 +115,11 @@
                 "bAutoWidth": true
 
             });
+
+            $('#confirm-delete').on('show.bs.modal', function(e) {
+                $(this).find('.btn-ok').attr('href', $(e.relatedTarget).data('href'));
+            });
+
         });
 
     </script>
