@@ -13,8 +13,8 @@
         .error-actions {margin-top:15px;margin-bottom:15px;}
         .error-actions .btn { margin-right:10px; }
     </style>
-    <script type="text/javascript" src="{{ asset('/public/js/jquery.min.js') }}"></script>
-    <script type="text/javascript" src="{{ asset('/public/js/bootstrap.min.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('/node_modules/jquery/dist/jquery.min.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('/node_modules/bootstrap/dist/js/bootstrap.min.js') }}"></script>
 </head>
 <body>
 <div class="container">
@@ -25,8 +25,6 @@
     </div>
 </div>
 
-<script type="text/javascript">
 
-</script>
 </body>
 </html>
