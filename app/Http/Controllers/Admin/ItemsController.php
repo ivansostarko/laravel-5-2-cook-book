@@ -45,8 +45,9 @@ class ItemsController extends Controller
         $items = App\Models\Item::
         join('users', 'items.user_id', '=', 'users.id')
             ->join('categories', 'items.category_id', '=', 'categories.id')
-            ->select(['items.id', 'items.name', 'users.name as author', 'categories.name as category', 'items.image', 'items.created_at'])
-            ->orderBy('created_at', 'desc');
+            ->select(['items.id as item_id', 'items.name', 'users.name as author', 'categories.name as category', 'items.image', 'items.created_at'])
+            ->orderBy('created_at', 'desc')
+        ->get();
 
 
 

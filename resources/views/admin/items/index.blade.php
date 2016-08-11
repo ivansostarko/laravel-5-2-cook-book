@@ -80,13 +80,13 @@
                 serverSide: true,
                 ajax: '{!! route('admin.items.ajax') !!}',
                 columns: [
-                    { data: 'id', name: 'id' },
+                    { data: 'item_id', name: 'item_id' },
                     { data: 'image', name: 'image' },
                     { data: 'name', name: 'name' },
                     { data: 'author', name: 'author' },
                     { data: 'category', name: 'category' },
                     { data: 'created_at', name: 'created_at' },
-                    {data: 'action', name: 'action', orderable: false, searchable: false}
+                    {data: 'action', name: 'action', orderable: true, searchable: true}
                 ]
 
             });
