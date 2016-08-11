@@ -1,7 +1,5 @@
 <?php
-/* TODO: Posložit sve to*/
 namespace App\Http\Controllers\Admin;
-
 use App\Http\Requests;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -11,17 +9,12 @@ use Session;
 use Redirect;
 use Hash;
 use Validator;
-use Response;
-
 class AdminsController extends Controller
 {
-
     public function __construct()
     {
         $this->middleware('admin');
     }
-
-
     /**
      * Display a listing of the resource.
      *
@@ -30,11 +23,9 @@ class AdminsController extends Controller
     public function index()
     {
         //Get item by ID
-        $admins = App\Admin::orderBy('created_at', 'desc')->get();
-
+        $admins = App\Admin::all();
         return view('admin.admins.index', ['admins' => $admins]);
     }
-
     /**
      * Show the form for creating a new resource.
      *
@@ -44,7 +35,6 @@ class AdminsController extends Controller
     {
         return view('admin.admins.create');
     }
-
     /**
      * Store a newly created resource in storage.
      *
@@ -53,12 +43,9 @@ class AdminsController extends Controller
     public function store(Request $request)
     {
         $save = new App\Admin;
-
         $save->name=$request->input('name');
         $save->email=$request->input('email');
         $save->password = Hash::make($request->password);
-
-
         if($save->save()){
             Session::flash('message', 'Admin registred successfully');
             Session::flash('message_type', 'success');
@@ -70,7 +57,6 @@ class AdminsController extends Controller
             return redirect::to('/admin/admins');
         }
     }
-
     /**
      * Remove the specified resource from storage.
      *
@@ -78,12 +64,7 @@ class AdminsController extends Controller
      * @return Response
      */
     public function destroy($id){
-
-        if(!$delete = App\Admin::find($id)) {
-            abort(404);
-        }
-
-
+        $delete = App\Admin::find($id);
         if ($delete->delete()) {
             Session::flash('message', 'File deleted successfully');
             Session::flash('message_type', 'success');
@@ -92,11 +73,8 @@ class AdminsController extends Controller
             Session::flash('message', 'Error while deleting file');
             Session::flash('message_type', 'danger');
             return redirect::to('/admin/admins');
-
         }
-
     }
-
     /**
      * Show the form for editing the specified resource.
      *
@@ -104,18 +82,9 @@ class AdminsController extends Controller
      * @return Response
      */
     public function edit($id){
-
-        if(!$admin = App\Admin::find($id)) {
-            abort(404);
-        }
-
-
-
-            return Response::json($admin);
-
-
+        $admin = App\Admin::find($id);
+        return view('admin.admins.edit', ['admin' => $admin]);
     }
-
     /**
      * Update the specified resource in storage.
      *
@@ -123,43 +92,27 @@ class AdminsController extends Controller
      * @return Response
      */
     public function update(Request $request, $id){
-
-        if(!$update = App\Admin::find($id)) {
-            return Response::json('error');
-        }
-
+        $update = App\Admin::find($id);
         $update->name=$request->input('name');
         $update->email=$request->input('email');
-
-
         if($update->save()){
-            return Response::json($update);
+            Session::flash('message', 'Profile updated successfully');
+            Session::flash('message_type', 'success');
+            return redirect::to('/admin/admins');
         }
         else {
-            return Response::json('error');
-
+            Session::flash('message', 'Error while updating profile');
+            Session::flash('message_type', 'danger');
+            return redirect::to('/admin/admins');
         }
-
     }
-
     public function editPassword($id){
-
-        if(!$admin = App\Admin::find($id)) {
-            abort(404);
-        }
-
+        $admin = App\Admin::find($id);
         return view('admin.admins.password', ['admin' => $admin]);
-
     }
-
     public function updatePassword(Request $request, $id){
-
-        if(!$update = App\Admin::find(Auth::guard('admin')->user()->id)) {
-            abort(404);
-        }
-
+        $update = App\Admin::find(Auth::guard('admin')->user()->id);
         $update->password = Hash::make($request->password);
-
         if($update->save()){
             Session::flash('message', 'Password updated successfully');
             Session::flash('message_type', 'success');
@@ -170,8 +123,5 @@ class AdminsController extends Controller
             Session::flash('message_type', 'danger');
             return redirect::to('/admin/admins');
         }
-
     }
-
-
 }
