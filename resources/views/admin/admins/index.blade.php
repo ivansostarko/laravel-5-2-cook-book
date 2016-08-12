@@ -1,11 +1,11 @@
 @extends('layouts.admin')
 
 @section('htmlheader_title')
-    Admins
+    {{ trans('words.admins') }}
 @endsection
 
 @section('contentheader_title')
-    Admins <a href="{{ route('admin.admins.create') }}" class="btn btn-primary pull-right btn-xl" type="button">Insert new admin</a>
+    {{ trans('words.admins') }} <a href="{{ route('admin.admins.create') }}" class="btn btn-primary pull-right btn-xl" type="button">{{ trans('words.create_admin') }}</a>
 @endsection
 
 @section('sidebar')
@@ -23,10 +23,10 @@
         <thead>
         <tr>
             <th>ID</th>
-            <th>Name</th>
-            <th>Email</th>
-            <th>Date created</th>
-            <th>Actions</th>
+            <th>{{ trans('words.name') }}</th>
+            <th>{{ trans('words.email') }}</th>
+            <th>{{ trans('words.date') }}</th>
+            <th>{{ trans('words.actions') }}</th>
 
         </tr>
         </thead>
@@ -40,11 +40,11 @@
                 <td>{{ $admin->email }}</td>
                 <td>{{ date('d.m.Y', strtotime($admin->created_at)) }}</td>
                 <td>
-                    <a href="{{ route('admin.admins.edit', $admin->id) }}"><i class="fa fa-pencil" data-toggle="tooltip" data-placement="top" title="Edit Admin"></i></a>
+                    <a href="{{ route('admin.admins.edit', $admin->id) }}"><i class="fa fa-pencil" data-toggle="tooltip" data-placement="top" title="{{ trans('words.edit_admin') }}"></i></a>
 
-                    <a href="{{ route('admin.admins.password.edit', $admin->id) }}" title="Edit password"><i class="fa fa-key" data-toggle="tooltip" data-placement="top" title="Edit password"></i></a>
+                    <a href="{{ route('admin.admins.password.edit', $admin->id) }}" ><i class="fa fa-key" data-toggle="tooltip" data-placement="top" title="{{ trans('words.edit_password') }}"></i></a>
 
-                    <a data-href="{{ route('admin.admins.destroy', $admin->id) }}" data-toggle="modal" data-target="#confirm-delete"  title="Delete file"><i class="fa fa-ban" data-toggle="tooltip" data-placement="top" title="Delete admin"></i></a>
+                    <a data-href="{{ route('admin.admins.destroy', $admin->id) }}" data-toggle="modal" data-target="#confirm-delete" ><i class="fa fa-ban" data-toggle="tooltip" data-placement="top" title="{{ trans('words.delete_admin') }}"></i></a>
 
                 </td>
 
@@ -62,18 +62,17 @@
 
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                    <h4 class="modal-title" id="myModalLabel">Confirm Delete</h4>
+                    <h4 class="modal-title" id="myModalLabel">{{ trans('words.confirm_delete') }} </h4>
                 </div>
 
                 <div class="modal-body">
-                    <p>You are about to delete one track, this procedure is irreversible.</p>
-                    <p>Do you want to proceed?</p>
+                    <p>{{ trans('words.confirm_delete_process') }}</p>
                     <p class="debug-url"></p>
                 </div>
 
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
-                    <a class="btn btn-danger btn-ok">Delete</a>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">{{ trans('words.cancel') }}</button>
+                    <a class="btn btn-danger btn-ok">{{ trans('words.delete') }}</a>
                 </div>
             </div>
         </div>

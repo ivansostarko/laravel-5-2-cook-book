@@ -1,17 +1,17 @@
 @extends('layouts.mail')
 
 @section('htmlheader_title')
-    Resend verification code
+    {{ trans('phrases.resend_verification_code') }}
 @endsection
 
 @section('contentheader_title')
-    Resend verification code
+    {{ trans('phrases.resend_verification_code') }}
 @endsection
 
 
 @section('main-content')
 
-    <p>Click here to verify your account: <a href="{{ $link = url('verification', $token) . '?email=' . urlencode($email) }}"> {{ $link }}</a></p>
+    <p>{{ trans('phrases.resend_verification_code_click') }}: <a href="{{ $link = url('verification', $token) . '?email=' . urlencode($email) }}"> {{ $link }}</a></p>
 
 
 @endsection

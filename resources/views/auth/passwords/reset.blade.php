@@ -1,11 +1,11 @@
 @extends('layouts.public')
 
 @section('htmlheader_title')
-    New Password
+ {{ trans('words.new_password') }}
 @endsection
 
 @section('contentheader_title')
-    New Password
+    {{ trans('words.new_password') }}
 @endsection
 
 @section('sidebar')
@@ -22,10 +22,10 @@
         <input type="hidden" name="token" value="{{ $token }}">
 
         <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
-            <label class="col-md-4 control-label">E-Mail Address</label>
+            <label class="col-md-4 control-label"> {{ trans('words.email') }}</label>
 
             <div class="col-md-6">
-                <input type="email" class="form-control" name="email" value="{{ $email or old('email') }}">
+                <input type="email" class="form-control" name="email" placeholder=" {{ trans('words.email') }}" value="{{ $email or old('email') }}">
 
                 @if ($errors->has('email'))
                     <span class="help-block">
@@ -36,10 +36,10 @@
         </div>
 
         <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
-            <label class="col-md-4 control-label">Password</label>
+            <label class="col-md-4 control-label"> {{ trans('words.password') }}</label>
 
             <div class="col-md-6">
-                <input type="password" class="form-control" name="password">
+                <input type="password" class="form-control" placeholder=" {{ trans('words.password') }}" name="password">
 
                 @if ($errors->has('password'))
                     <span class="help-block">
@@ -50,9 +50,9 @@
         </div>
 
         <div class="form-group{{ $errors->has('password_confirmation') ? ' has-error' : '' }}">
-            <label class="col-md-4 control-label">Confirm Password</label>
+            <label class="col-md-4 control-label"> {{ trans('words.confirm_password') }}</label>
             <div class="col-md-6">
-                <input type="password" class="form-control" name="password_confirmation">
+                <input type="password" class="form-control" placeholder=" {{ trans('words.confirm_password') }}"name="password_confirmation">
 
                 @if ($errors->has('password_confirmation'))
                     <span class="help-block">
@@ -66,7 +66,7 @@
         <div class="form-group">
             <div class="col-md-6 col-md-offset-4">
                 <button type="submit" class="btn btn-primary">
-                    Register
+                    {{ trans('words.submit') }}
                 </button>
             </div>
         </div>
@@ -101,12 +101,12 @@
                     email: {
                         validators: {
                             notEmpty: {
-                                message: 'The Email is required'
+                                message: '{{ trans('validation.email_is_required') }}'
                             },
 
                             regexp: {
                                 regexp: '^[^@\\s]+@([^@\\s]+\\.)+[^@\\s]+$',
-                                message: 'The value is not a valid email address'
+                                message: '{{ trans('validation.email_invalid') }}'
                             }
                         }
                     }

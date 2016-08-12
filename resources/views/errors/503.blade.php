@@ -2,7 +2,7 @@
 @extends('layouts.error')
 
 @section('htmlheader_title')
-    Error 503 page
+      {{ trans('phrases.error_503') }}
 @endsection
 
 
@@ -10,16 +10,16 @@
 @section('main-content')
 
     <div class="error-template">
-        <h1>
-            Oops!</h1>
-        <h2>
-            Service unavailable</h2>
+        <h1>{{ trans('phrases.oops') }}</h1>
+
+        <h2> {{ trans('phrases.service_unavailable') }}</h2>
+
         <div class="error-details">
-            Sorry, an error has occured.
+            {{ trans('phrases.errors_occured') }}
         </div>
         <div class="error-actions">
             <a href="{{ route('web.homepage') }}" class="btn btn-primary btn-lg"><span class="glyphicon glyphicon-home"></span>
-                Take Me Home </a>
+                {{ trans('phrases.take_me_home') }}   </a>
         </div>
     </div>
 

@@ -1,14 +1,14 @@
 @extends('layouts.mail')
 
 @section('htmlheader_title')
-    Verified account
+    {{ trans('phrases.verfied_account') }}
 @endsection
 
 @section('contentheader_title')
-    Verified account
+    {{ trans('phrases.verfied_account') }}
 @endsection
 
 
 @section('main-content')
-    Admin just verified your account
+    {{ trans('phrases.admin_verified_account') }}
 @endsection

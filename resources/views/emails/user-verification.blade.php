@@ -1,17 +1,17 @@
 @extends('layouts.mail')
 
 @section('htmlheader_title')
-   Verify your account
+   {{ trans('phrases.verify_your_account') }}
 @endsection
 
 @section('contentheader_title')
-   Verify your account
+   {{ trans('phrases.verify_your_account') }}
 @endsection
 
 
 @section('main-content')
 
-   <p>Click here to verify your account: <a href="{{ $link = url('verification', $user->verification_token) . '?email=' . urlencode($user->email) }}"> {{ $link }}</a></p>
+   <p> {{ trans('phrases.verify_your_account_click') }}: <a href="{{ $link = url('verification', $user->verification_token) . '?email=' . urlencode($user->email) }}"> {{ $link }}</a></p>
 
    <div style="Margin-left: 20px;Margin-right: 20px;">
       <div class="btn btn--flat btn--large" style="Margin-bottom: 20px;text-align: center;">

@@ -1,11 +1,11 @@
 @extends('layouts.admin')
 
 @section('htmlheader_title')
-    Edit recipe
+    {{ trans('words.edit_item') }}
 @endsection
 
 @section('contentheader_title')
-    Edit recipe
+    {{ trans('words.edit_item') }}
 @endsection
 
 @section('sidebar')
@@ -16,23 +16,25 @@
 
 
 
-    <form class="form-horizontal" id="Form" role="form" method="POST" enctype="multipart/form-data" action="{{ url('/admin/items/update/') }}/{{ $items->id }}">
+    <form class="form-horizontal" id="Form" role="form" method="POST" enctype="multipart/form-data"
+          action="{{ url('/admin/items/update/') }}/{{ $items->id }}">
         {{ csrf_field() }}
         <div class="form-group">
             <div class="col-sm-2">
-                <label for="inputEmail3" class="control-label">Name</label>
+                <label for="inputEmail3" class="control-label"> {{ trans('words.name') }}</label>
             </div>
             <div class="col-sm-10">
-                <input type="text" class="form-control" id="name" name="name" placeholder="Name" value="{{ $items->name }}">
+                <input type="text" class="form-control" id="name" name="name" placeholder=" {{ trans('words.name') }}"
+                       value="{{ $items->name }}">
             </div>
         </div>
 
         <div class="form-group">
             <div class="col-sm-2">
-                <label for="inputPassword3" class="control-label">Category</label>
+                <label for="inputPassword3" class="control-label"> {{ trans('words.category') }}</label>
             </div>
             <div class="col-sm-10">
-                <select class="form-control" id="category" name="category" placeholder="test">
+                <select class="form-control" id="category" name="category">
 
                     @foreach($categories as $category)
                         @if($category->id  ==  $items->category_id)
@@ -48,30 +50,34 @@
 
         <div class="form-group">
             <div class="col-sm-2">
-                <label for="inputEmail3" class="control-label">Ingredients</label>
+                <label for="inputEmail3" class="control-label"> {{ trans('words.ingredients') }}</label>
             </div>
             <div class="col-sm-10">
-                <textarea class="form-control" rows="3" name="ingredients" id="ingredients">{{ $items->ingredients }}</textarea>
+                <textarea class="form-control" rows="3" name="ingredients"
+                          id="ingredients">{{ $items->ingredients }}</textarea>
             </div>
         </div>
 
         <div class="form-group">
             <div class="col-sm-2">
-                <label for="inputEmail3" class="control-label">Directions</label>
+                <label for="inputEmail3" class="control-label"> {{ trans('words.directions') }}</label>
             </div>
             <div class="col-sm-10">
-                <textarea class="form-control" rows="3" name="directions" id="directions">{{ $items->content }}</textarea>
+                <textarea class="form-control" rows="3" name="directions"
+                          id="directions">{{ $items->content }}</textarea>
             </div>
         </div>
 
         <div class="form-group">
             <div class="col-sm-2">
-                <label for="inputEmail3" class="control-label">Preparation time</label>
+                <label for="inputEmail3" class="control-label"> {{ trans('words.preparation_time') }}</label>
             </div>
             <div class="col-sm-10">
                 <div class="input-group">
-                    <input type="text" class="form-control" id="time" name="time" placeholder="Preparation time" value="{{ $items->time }}" aria-describedby="basic-addon2">
-                    <span class="input-group-addon" id="basic-addon2">minutes</span>
+                    <input type="text" class="form-control" id="time" name="time"
+                           placeholder=" {{ trans('words.preparation_time') }}" value="{{ $items->time }}"
+                           aria-describedby="basic-addon2">
+                    <span class="input-group-addon" id="basic-addon2"> {{ trans('words.minutes') }}</span>
                 </div>
             </div>
         </div>
@@ -83,26 +89,26 @@
             <div class="col-sm-10">
 
                 <div class="col-sm-3"><img src="../../../{{ $items->image }}" width="150px"></div>
-                <div class="col-sm-9"> <div class="input-group">
+                <div class="col-sm-9">
+                    <div class="input-group">
                         <label class="input-group-btn">
                     <span class="btn btn-primary">
-                        Browse&hellip; <input type="file" id="file" name="file" style="display: none;" multiple>
+                         {{ trans('words.browse') }}&hellip; <input type="file" id="file" name="file"
+                                                                    style="display: none;" multiple>
                     </span>
                         </label>
                         <input type="text" class="form-control" readonly>
-                    </div></div>
+                    </div>
+                </div>
 
 
             </div>
         </div>
 
 
-
-
-
         <div class="form-group">
             <div class="col-sm-offset-2 col-sm-10">
-                <button type="submit" class="btn btn-default">Submit</button>
+                <button type="submit" class="btn btn-default"> {{ trans('words.submit') }}</button>
             </div>
         </div>
     </form>
@@ -117,7 +123,8 @@
 @section('scripts')
     <script type="text/javascript" src="{{ asset('/node_modules/ckeditor/ckeditor.js') }}"></script>
     <script type="text/javascript" src="{{ asset('/public/plugins/validation/js/formValidation.min.js') }}"></script>
-    <script type="text/javascript" src="{{ asset('/public/plugins/validation/js/framework/bootstrap.min.js') }}"></script>
+    <script type="text/javascript"
+            src="{{ asset('/public/plugins/validation/js/framework/bootstrap.min.js') }}"></script>
 
 
 
@@ -135,7 +142,7 @@
                     name: {
                         validators: {
                             notEmpty: {
-                                message: 'The Name is required'
+                                message: '{{ trans('validation.name_is_required') }}'
                             }
                         }
                     },
@@ -143,17 +150,17 @@
                     category: {
                         validators: {
                             notEmpty: {
-                                message: 'Please select your native language.'
+                                message: '{{ trans('validation.select_category') }}'
                             }
                         }
                     },
                     time: {
                         validators: {
                             notEmpty: {
-                                message: 'Please select your native language.'
+                                message: '{{ trans('validation.preparation_time_required') }}'
                             },
                             numeric: {
-                                message: 'The value is not a number',
+                                message: '{{ trans('validation.preparation_time_invalid') }}',
                                 // The default separators
                                 thousandsSeparator: '',
                                 decimalSeparator: '.'
@@ -165,28 +172,28 @@
                 }
             });
 
-            CKEDITOR.replace( 'directions' );
-            CKEDITOR.replace( 'ingredients' );
+            CKEDITOR.replace('directions');
+            CKEDITOR.replace('ingredients');
 
-            // We can attach the `fileselect` event to all file inputs on the page
-            $(document).on('change', ':file', function() {
+
+            $(document).on('change', ':file', function () {
                 var input = $(this),
                         numFiles = input.get(0).files ? input.get(0).files.length : 1,
                         label = input.val().replace(/\\/g, '/').replace(/.*\//, '');
                 input.trigger('fileselect', [numFiles, label]);
             });
 
-            // We can watch for our custom `fileselect` event like this
-            $(document).ready( function() {
-                $(':file').on('fileselect', function(event, numFiles, label) {
+
+            $(document).ready(function () {
+                $(':file').on('fileselect', function (event, numFiles, label) {
 
                     var input = $(this).parents('.input-group').find(':text'),
                             log = numFiles > 1 ? numFiles + ' files selected' : label;
 
-                    if( input.length ) {
+                    if (input.length) {
                         input.val(log);
                     } else {
-                        if( log ) alert(log);
+                        if (log) alert(log);
                     }
 
                 });

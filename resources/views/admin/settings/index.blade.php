@@ -1,11 +1,11 @@
 @extends('layouts.admin')
 
 @section('htmlheader_title')
-    Settings
+    {{ trans('words.settings') }}
 @endsection
 
 @section('contentheader_title')
-    Settings
+    {{ trans('words.settings') }}
 @endsection
 
 @section('sidebar')
@@ -32,7 +32,7 @@
 
     <div class="form-group">
 
-            <button type="submit" class="btn btn-default">Submit</button>
+            <button type="submit" class="btn btn-default"> {{ trans('words.submit') }}</button>
 
     </div>
     </form>

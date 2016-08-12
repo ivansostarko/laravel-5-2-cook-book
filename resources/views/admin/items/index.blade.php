@@ -1,11 +1,11 @@
 @extends('layouts.admin')
 
 @section('htmlheader_title')
-   Items
+    {{ trans('words.items') }}
 @endsection
 
 @section('contentheader_title')
-   Items
+    {{ trans('words.items') }}
 @endsection
 
 @section('sidebar')
@@ -24,12 +24,12 @@
         <thead>
         <tr>
             <th>ID</th>
-            <th>Image</th>
-            <th>Name</th>
-            <th>User</th>
-            <th>Category</th>
-            <th>Created</th>
-            <th>Action</th>
+            <th>{{ trans('words.image') }}</th>
+            <th>{{ trans('words.name') }}</th>
+            <th>{{ trans('words.user') }}</th>
+            <th>{{ trans('words.category') }}</th>
+            <th>{{ trans('words.date') }}</th>
+            <th>{{ trans('words.actions') }}</th>
         </tr>
         </thead>
     </table>
@@ -41,18 +41,17 @@
 
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                    <h4 class="modal-title" id="myModalLabel">Confirm Delete</h4>
+                    <h4 class="modal-title" id="myModalLabel">{{ trans('words.confirm_delete') }} </h4>
                 </div>
 
                 <div class="modal-body">
-                    <p>You are about to delete one track, this procedure is irreversible.</p>
-                    <p>Do you want to proceed?</p>
+                    <p>{{ trans('words.confirm_delete_process') }}</p>
                     <p class="debug-url"></p>
                 </div>
 
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
-                    <a class="btn btn-danger btn-ok">Delete</a>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">{{ trans('words.cancel') }}</button>
+                    <a class="btn btn-danger btn-ok">{{ trans('words.delete') }}</a>
                 </div>
             </div>
         </div>

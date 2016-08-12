@@ -1,11 +1,11 @@
 @extends('layouts.admin')
 
 @section('htmlheader_title')
-    Edit User
+    {{ trans('words.edit_user') }}
 @endsection
 
 @section('contentheader_title')
-    Edit User
+    {{ trans('words.edit_user') }}
 @endsection
 
 @section('sidebar')
@@ -17,43 +17,30 @@
 
 
     <form class="form-horizontal"  id="registerForm" role="form" method="POST" action="{{ url('/admin/users/update', $user->id) }}">
-        {!! csrf_field() !!}
-
-        <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
-            <label class="col-md-4 control-label">Name</label>
-
-            <div class="col-md-6">
-                <input type="text" class="form-control" id="name" name="name" value="{{$user ->name}}">
-
-                @if ($errors->has('name'))
-                    <span class="help-block">
-                                        <strong>{{ $errors->first('name') }}</strong>
-                                    </span>
-                @endif
+        {{ csrf_field() }}
+        <div class="form-group">
+            <div class="col-sm-2">
+                <label for="name" class="control-label">{{ trans('words.name') }}</label>
+            </div>
+            <div class="col-sm-10">
+                <input id="name" id="name" type="text" class="form-control" name="name" value="{{$user->name}}"
+                       placeholder="{{ trans('words.name') }}">
             </div>
         </div>
+        <div class="form-group">
+            <div class="col-sm-2">
+                <label for="inputPassword3" class="control-label">{{ trans('words.email') }}</label>
+            </div>
+            <div class="col-sm-10">
 
-        <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
-            <label class="col-md-4 control-label">E-Mail Address</label>
-
-            <div class="col-md-6">
-                <input type="email" class="form-control" id="email" name="email" value="{{$user ->email}}">
-
-                @if ($errors->has('email'))
-                    <span class="help-block">
-                                        <strong>{{ $errors->first('email') }}</strong>
-                                    </span>
-                @endif
+                <input id="email" class="form-control" type="email" name="email" value="{{$user->email}}"
+                       placeholder="{{ trans('words.email') }}">
             </div>
         </div>
-
-
 
         <div class="form-group">
-            <div class="col-md-6 col-md-offset-4">
-                <button type="submit" class="btn btn-primary">
-                    Register
-                </button>
+            <div class="col-sm-offset-2 col-sm-10">
+                <button type="submit" class="btn btn-default">{{ trans('words.submit') }}</button>
             </div>
         </div>
     </form>
@@ -86,19 +73,15 @@
                     name: {
                         validators: {
                             notEmpty: {
-                                message: 'The Name is required'
+                                message: '{{ trans('validation.name_is_required') }}'
                             }
                         }
                     },
+
                     email: {
                         validators: {
                             notEmpty: {
-                                message: 'The Email is required'
-                            },
-
-                            regexp: {
-                                regexp: '^[^@\\s]+@([^@\\s]+\\.)+[^@\\s]+$',
-                                message: 'The value is not a valid email address'
+                                message: '{{ trans('validation.email_is_required') }}'
                             }
                         }
                     }

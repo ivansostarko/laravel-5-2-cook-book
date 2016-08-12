@@ -1,11 +1,11 @@
 @extends('layouts.public')
 
 @section('htmlheader_title')
-    User already verified
+    {{ trans('phrases.user_already_verified') }}
 @endsection
 
 @section('contentheader_title')
-    User already verified
+    {{ trans('phrases.user_already_verified') }}
 @endsection
 
 @section('sidebar')
@@ -14,7 +14,7 @@
 
 @section('main-content')
 
-    Oops! User already verified
+    {{ trans('phrases.user_already_verified_oops') }}
 @endsection
 
 @section('styles')

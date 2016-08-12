@@ -1,11 +1,11 @@
 @extends('layouts.public')
 
 @section('htmlheader_title')
-    Login
+    {{ trans('words.login') }}
 @endsection
 
 @section('contentheader_title')
-    Login
+    {{ trans('words.login') }}
 @endsection
 
 @section('sidebar')
@@ -23,10 +23,10 @@
         {!! csrf_field() !!}
 
         <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
-            <label class="col-md-4 control-label">E-Mail Address</label>
+            <label class="col-md-4 control-label">  {{ trans('words.email') }}</label>
 
             <div class="col-md-6">
-                <input type="email" class="form-control" id="email" name="email" value="{{ old('email') }}">
+                <input type="email" class="form-control" id="email" placeholder="  {{ trans('words.email') }}" name="email" value="{{ old('email') }}">
 
                 @if ($errors->has('email'))
                     <span class="help-block">
@@ -37,16 +37,15 @@
         </div>
 
         <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
-            <label class="col-md-4 control-label">Password</label>
+            <label class="col-md-4 control-label">  {{ trans('words.password') }}</label>
 
             <div class="col-md-6">
-                <input type="password" id="password" class="form-control" name="password">
+                <input type="password" id="password" class="form-control" placeholder="{{ trans('words.password') }}" name="password">
 
                 @if ($errors->has('password'))
-                    <span class="help-block">
-                                        <strong>{{ $errors->first('password') }}</strong>
-                                    </span>
+                    <span class="help-block"> <strong>{{ $errors->first('password') }}</strong></span>
                 @endif
+
             </div>
         </div>
 
@@ -54,7 +53,7 @@
             <div class="col-md-6 col-md-offset-4">
                 <div class="checkbox">
                     <label>
-                        <input type="checkbox" name="remember"> Remember Me
+                        <input type="checkbox" name="remember">  {{ trans('words.remember') }}
                     </label>
                 </div>
             </div>
@@ -63,7 +62,7 @@
         <div class="form-group">
             <div class="col-md-6 col-md-offset-4">
                 <button type="submit" class="btn btn-primary">
-                    Login
+                    {{ trans('words.login') }}
                 </button>
 
 
@@ -71,8 +70,8 @@
             </div>
         <div class="form-group">
             <div class="col-md-6 col-md-offset-4">
-            <a class="btn btn-link" href="{{ route('password.get.email') }}">Forgot Your Password?</a>
-            <a class="btn btn-link" href="{{ route('verification.resend.edit') }}">Resend Verification Code??</a>
+            <a class="btn btn-link" href="{{ route('password.get.email') }}">{{ trans('words.forgot') }}</a>
+            <a class="btn btn-link" href="{{ route('verification.resend.edit') }}">{{ trans('words.resend_code') }}</a>
             </div>
         </div>
     </form>
@@ -105,7 +104,7 @@
                     email: {
                         validators: {
                             notEmpty: {
-                                message: 'The Email is required'
+                                message: '{{ trans('validation.email_is_required') }}'
                             },
 
                         regexp: {
@@ -118,7 +117,7 @@
                     password: {
                         validators: {
                             notEmpty: {
-                                message: 'The Password is required'
+                                message: '{{ trans('validation.password_is_required') }}'
                             }
                         }
                     }

@@ -110,4 +110,14 @@ return [
 
     'attributes' => [],
 
+    'name_is_required' => 'The Name is required.',
+    'email_is_required' => 'The Email address is required.',
+    'password_is_required' => 'The Password is required.',
+    'confirm_is_required' => 'The Confirm password is required.',
+    'password_is_not_same' => 'The password and its confirm are not the same',
+    'select_category' => 'Please select category.',
+    'preparation_time_required' => 'The Preparation time is required',
+    'preparation_time_invalid' => 'The Preparation time is invalid',
+    'email_invalid' => 'The Email is invalid',
+
 ];

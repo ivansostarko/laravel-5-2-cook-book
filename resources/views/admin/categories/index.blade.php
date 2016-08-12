@@ -1,11 +1,11 @@
 @extends('layouts.admin')
 
 @section('htmlheader_title')
-   Categories
+    {{ trans('words.categories') }}
 @endsection
 
 @section('contentheader_title')
-    Categories <a href="{{ route('admin.categories.create') }}" class="btn btn-primary pull-right btn-xl" type="button">Insert new category</a>
+    {{ trans('words.categories') }} <a href="{{ route('admin.categories.create') }}" class="btn btn-primary pull-right btn-xl" type="button">{{ trans('words.create_new_category') }}</a>
 @endsection
 
 @section('sidebar')
@@ -24,10 +24,10 @@
         <thead>
         <tr>
             <th>ID</th>
-            <th>Image</th>
-            <th>Name</th>
-          <th>Date published</th>
-            <th>Actions</th>
+            <th>{{ trans('words.image') }}</th>
+            <th>{{ trans('words.name') }}</th>
+          <th>{{ trans('words.date') }}</th>
+            <th>{{ trans('words.actions') }}</th>
 
         </tr>
         </thead>
@@ -53,8 +53,8 @@
                 <td>{{ $category->name }}</td>
                 <td>{{ date('d.m.Y', strtotime($category->created_at)) }}</td>
                 <td>
-                  	<a href="{{ route('admin.categories.edit', $category->id) }}"><i class="fa fa-pencil"  data-toggle="tooltip" data-placement="top" title="Edit Category"></i></a>
-                    <a href="#"  data-href="{{ route('admin.categories.destroy', $category->id) }}" data-toggle="modal" data-target="#confirm-delete" title="Delete file"><i class="fa fa-ban" data-toggle="tooltip" data-placement="top" title="Delete Category"></i></a>
+                  	<a href="{{ route('admin.categories.edit', $category->id) }}"><i class="fa fa-pencil"  data-toggle="tooltip" data-placement="top" title="{{ trans('words.edit_category') }}"></i></a>
+                    <a href="#"  data-href="{{ route('admin.categories.destroy', $category->id) }}" data-toggle="modal" data-target="#confirm-delete"><i class="fa fa-ban" data-toggle="tooltip" data-placement="top" title="{{ trans('words.delete_category') }}"></i></a>
 
                 </td>
 
@@ -72,18 +72,17 @@
 
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                    <h4 class="modal-title" id="myModalLabel">Confirm Delete</h4>
+                    <h4 class="modal-title" id="myModalLabel">{{ trans('words.confirm_delete') }} </h4>
                 </div>
 
                 <div class="modal-body">
-                    <p>You are about to delete one track, this procedure is irreversible.</p>
-                    <p>Do you want to proceed?</p>
+                    <p>{{ trans('words.confirm_delete_process') }}</p>
                     <p class="debug-url"></p>
                 </div>
 
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
-                    <a class="btn btn-danger btn-ok">Delete</a>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">{{ trans('words.cancel') }}</button>
+                    <a class="btn btn-danger btn-ok">{{ trans('words.delete') }}</a>
                 </div>
             </div>
         </div>
@@ -106,6 +105,7 @@
 
             //Init tooltip
             $('[data-toggle="tooltip"]').tooltip();
+
 
             $('#main_table').dataTable({
                 "bPaginate": true,

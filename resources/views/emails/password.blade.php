@@ -2,17 +2,17 @@
 @extends('layouts.mail')
 
 @section('htmlheader_title')
-    Your Password Reset Link
+    {{trans('phrases.your_resend_link')}}
 @endsection
 
 @section('contentheader_title')
-    Your Password Reset Link
+    {{trans('phrases.your_resend_link')}}
 @endsection
 
 
 @section('main-content')
 
-  <p>Click here to reset your password: <a href="{{ $link = url('password/reset', $token).'?email='.urlencode($user->getEmailForPasswordReset()) }}"> {{ $link }} </a>
+  <p>{{trans('phrases.your_resend_link_click')}}: <a href="{{ $link = url('password/reset', $token).'?email='.urlencode($user->getEmailForPasswordReset()) }}"> {{ $link }} </a>
   </p>
 @endsection
 

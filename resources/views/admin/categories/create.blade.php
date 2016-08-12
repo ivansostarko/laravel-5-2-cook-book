@@ -1,11 +1,11 @@
 @extends('layouts.admin')
 
 @section('htmlheader_title')
-    Categories
+    {{ trans('words.create_new_category') }}
 @endsection
 
 @section('contentheader_title')
-    Create new category
+    {{ trans('words.create_new_category') }}
 @endsection
 
 @section('sidebar')
@@ -20,10 +20,10 @@
         {{ csrf_field() }}
             <div class="form-group">
                 <div class="col-sm-2">
-                    <label for="inputEmail3" class="control-label">Name</label>
+                    <label for="inputEmail3" class="control-label">   {{ trans('words.name') }}</label>
                 </div>
                 <div class="col-sm-10">
-                    <input type="text" class="form-control" id="name" name="name" placeholder="Name">
+                    <input type="text" class="form-control" id="name" name="name" placeholder="{{ trans('words.name') }}">
                 </div>
             </div>
 
@@ -31,13 +31,13 @@
 
         <div class="form-group">
             <div class="col-sm-2">
-                <label for="inputEmail3" class="control-label">Image</label>
+                <label for="inputEmail3" class="control-label">{{ trans('words.image') }}</label>
             </div>
             <div class="col-sm-10">
                 <div class="input-group">
                     <label class="input-group-btn">
                     <span class="btn btn-primary">
-                        Browse&hellip; <input type="file" id="file" name="file" style="display: none;" multiple>
+                        {{ trans('words.browse') }}&hellip; <input type="file" id="file" name="file" style="display: none;" multiple>
                     </span>
                     </label>
                     <input type="text" class="form-control" readonly>
@@ -51,7 +51,7 @@
 
             <div class="form-group">
                 <div class="col-sm-offset-2 col-sm-10">
-                    <button type="submit" class="btn btn-default">Sign in</button>
+                    <button type="submit" class="btn btn-default">{{ trans('words.submit') }}</button>
                 </div>
             </div>
         </form>
@@ -83,28 +83,7 @@
                     name: {
                         validators: {
                             notEmpty: {
-                                message: 'The Name is required'
-                            }
-                        }
-                    },
-
-                    category: {
-                        validators: {
-                            notEmpty: {
-                                message: 'Please select your native language.'
-                            }
-                        }
-                    },
-                    time: {
-                        validators: {
-                            notEmpty: {
-                                message: 'Please select your native language.'
-                            },
-                            numeric: {
-                                message: 'The value is not a number',
-                                // The default separators
-                                thousandsSeparator: '',
-                                decimalSeparator: '.'
+                                message: '{{ trans('validation.name_is_required') }}'
                             }
                         }
                     }
@@ -115,7 +94,7 @@
 
 
 
-            // We can attach the `fileselect` event to all file inputs on the page
+
             $(document).on('change', ':file', function() {
                 var input = $(this),
                         numFiles = input.get(0).files ? input.get(0).files.length : 1,
@@ -123,7 +102,7 @@
                 input.trigger('fileselect', [numFiles, label]);
             });
 
-            // We can watch for our custom `fileselect` event like this
+
             $(document).ready( function() {
                 $(':file').on('fileselect', function(event, numFiles, label) {
 

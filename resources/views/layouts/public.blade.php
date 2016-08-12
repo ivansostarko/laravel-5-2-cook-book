@@ -7,12 +7,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
 
-    {!! OpenGraph::generate() !!}
-    {!! Twitter::generate() !!}
-    {!! SEOMeta::generate() !!}
+{!! OpenGraph::generate() !!}
+{!! Twitter::generate() !!}
+{!! SEOMeta::generate() !!}
 
 
-    <!-- Styles -->
+<!-- Styles -->
     <link href="{{ asset('/node_modules/bootstrap/dist/css/bootstrap.min.css') }}" rel="stylesheet" type="text/css"/>
     <link href="{{ asset('/public/css/theme.css') }}" rel="stylesheet" type="text/css"/>
     <link href="{{ asset('/node_modules/cd-font-awesome/index.css') }}" rel="stylesheet" type="text/css"/>
@@ -22,7 +22,6 @@
 
 <body>
 
-
 <div class="container-fluid top_header">
     <div class="row">
         <div class="container">
@@ -30,7 +29,8 @@
 
                 <form method="get" id="searchform" class="search_form" action="{{ route('web.search') }}">
                     <div class="input-group">
-                        <input type="text" class="form-control searchform" placeholder="{{trans('phrases.search_receipts')}}" name="search">
+                        <input type="text" class="form-control searchform"
+                               placeholder="{{trans('phrases.search_receipts')}}" name="search">
                         <span class="input-group-btn">
         <button class="btn search-button" type="submit"></button>
 
@@ -58,7 +58,8 @@
     <div class="container">
         <div class="navbar-header">
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-ex-collapse"><span
-                        class="sr-only">{{trans('phrases.toggle_navigation')}} </span><span class="icon-bar"></span><span
+                        class="sr-only">{{trans('phrases.toggle_navigation')}} </span><span
+                        class="icon-bar"></span><span
                         class="icon-bar"></span><span class="icon-bar"></span></button>
 
         </div>
@@ -66,20 +67,22 @@
             <ul class="nav navbar-nav navbar-left">
 
                 <li {{ (Request::is('/') ? 'class=active' : '') }}><a href="{{ route('web.homepage') }}"><i
-                                class="fa fa-home" aria-hidden="true"></i> Homepage</a></li>
+                                class="fa fa-home" aria-hidden="true"></i> {{trans('words.homepage')}}</a></li>
                 @if (Auth::guest())
                     <li {{ (Request::is('login') ? 'class=active' : '') }}><a href="{{ route('login.get') }}"><i
-                                    class="fa fa-sign-in" aria-hidden="true"></i> Login</a></li>
+                                    class="fa fa-sign-in" aria-hidden="true"></i> {{trans('words.login')}}</a></li>
                     <li {{ (Request::is('register') ? 'class=active' : '') }}><a href="{{ route('register.get') }}"><i
-                                    class="fa fa-user-plus" aria-hidden="true"></i> Register</a></li>
+                                    class="fa fa-user-plus" aria-hidden="true"></i> {{trans('words.register')}}</a></li>
                 @else
                     <li {{ (Request::is('profile') ? 'class=active' : '') }}><a href="{{ route('user.profile') }}"><i
-                                    class="fa fa-user" aria-hidden="true"></i> My Profile</a></li>
+                                    class="fa fa-user" aria-hidden="true"></i> {{trans('words.my_profile')}}</a></li>
                     <li {{ (Request::is('items') ? 'class=active' : '') }}><a href="{{ route('user.items') }}"><i
-                                    class="fa fa-cutlery" aria-hidden="true"></i> My Recepies</a></li>
+                                    class="fa fa-cutlery" aria-hidden="true"></i> {{trans('words.my_recipes')}} </a>
+                    </li>
                     <li {{ (Request::is('items/insert') ? 'class=active' : '') }}><a
-                                href="{{ route('user.items.create') }}"><i class="fa fa-plus" aria-hidden="true"></i> Add
-                            new recepies</a></li>
+                                href="{{ route('user.items.create') }}"><i class="fa fa-plus"
+                                                                           aria-hidden="true"></i> {{trans('words.add_new_recipe')}}
+                        </a></li>
                     <li><a href="{{ route('logout') }}"><i class="fa fa-sign-out" aria-hidden="true"></i> Logout</a>
                     </li>
                 @endif
@@ -111,7 +114,11 @@
 </div>
 
 <div id='goTop'></div>
-<a href="https://github.com/IvanSostarko/laravel-5-2-cook-book"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/652c5b9acfaddf3a9c326fa6bde407b87f7be0f4/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f6f72616e67655f6666373630302e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_orange_ff7600.png"></a>
+<a href="https://github.com/IvanSostarko/laravel-5-2-cook-book">
+    <img style="position: absolute; top: 0; right: 0; border: 0;"
+            src="https://camo.githubusercontent.com/652c5b9acfaddf3a9c326fa6bde407b87f7be0f4/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f6f72616e67655f6666373630302e706e67"
+            alt="Fork me on GitHub"
+            data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_orange_ff7600.png"></a>
 
 <!-- Google Analytics code -->
 {{ $google_analytic  }}
@@ -124,8 +131,6 @@
 <script type="text/javascript" src="{{ asset('/node_modules/jquery-gotop/src/jquery.gotop.min.js') }}"></script>
 <script type="text/javascript" src="{{ asset('/public/js/main.js') }}"></script>
 @yield('scripts')
-
-
 
 
 </body>

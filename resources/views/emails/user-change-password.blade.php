@@ -1,16 +1,16 @@
 @extends('layouts.mail')
 
 @section('htmlheader_title')
-    Password changed
+    {{ trans('phrases.password_changed') }}
 @endsection
 
 @section('contentheader_title')
-    Password changed
+    {{ trans('phrases.password_changed') }}
 @endsection
 
 
 @section('main-content')
-    <p>Your password has beend changed</p>
+    <p>  {{ trans('phrases.password_changed') }}</p>
 @endsection
 
 

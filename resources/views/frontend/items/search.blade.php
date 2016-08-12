@@ -5,7 +5,7 @@
 @endsection
 
 @section('contentheader_title')
-Results for: {{ $query}}
+{{ trans('words.results_for') }}: {{ $query}}
 @endsection
 
 @section('sidebar')
@@ -16,7 +16,7 @@ Results for: {{ $query}}
 
 
   @if (count($items) === 0)
-	  <p>No results found</p>
+	  <p>{{ trans('phrases.no_results_found') }}</p>
   @elseif (count($items) >= 1)
 
 	  @foreach($items as $item)

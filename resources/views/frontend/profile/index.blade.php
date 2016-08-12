@@ -1,15 +1,15 @@
 @extends('layouts.public')
 
 @section('htmlheader_title')
-	Profile
+    {{ trans('words.my_profile') }}
 @endsection
 
 @section('contentheader_title')
-    Profile
+    {{ trans('words.my_profile') }}
 @endsection
 
 @section('sidebar')
-	@include('layouts.partials.frontend.menu_profile')
+    @include('layouts.partials.frontend.menu_profile')
 @endsection
 
 @section('main-content')
@@ -22,27 +22,27 @@
 
 
 
-<table class="table">
-	@if($user->name != null)
-		<tr>
-			<td><i class="fa fa-user" aria-hidden="true"></i> Name</td>
-			<td>{{$user->name}}</td>
-		</tr>
-	@endif
+    <table class="table">
+        @if($user->name != null)
+            <tr>
+                <td><i class="fa fa-user" aria-hidden="true"></i> {{ trans('words.name') }}</td>
+                <td>{{$user->name}}</td>
+            </tr>
+        @endif
 
 
-	<tr>
-		<td><i class="fa fa-envelope" aria-hidden="true"></i> Email</td>
-		<td>{{$user->email}}</td>
-	</tr>
+        <tr>
+            <td><i class="fa fa-envelope" aria-hidden="true"></i> {{ trans('words.email') }}</td>
+            <td>{{$user->email}}</td>
+        </tr>
 
 
-	<tr>
-		<td><i class="fa fa-calendar" aria-hidden="true"></i> Registered</td>
-		<td>{{ date('d.m.Y', strtotime($user->created_at)) }}</td>
+        <tr>
+            <td><i class="fa fa-calendar" aria-hidden="true"></i> {{ trans('words.registered') }}</td>
+            <td>{{ date('d.m.Y', strtotime($user->created_at)) }}</td>
 
-	</tr>
-</table>
+        </tr>
+    </table>
 
 
 @endsection

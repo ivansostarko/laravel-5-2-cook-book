@@ -1,7 +1,7 @@
 @extends('layouts.error')
 
 @section('htmlheader_title')
-    Error 404 page
+    {{ trans('phrases.error_404') }}
 @endsection
 
 
@@ -9,16 +9,14 @@
 @section('main-content')
 
     <div class="error-template">
-        <h1>
-            Oops!</h1>
-        <h2>
-            404 Not Found</h2>
+        <h1>{{ trans('phrases.oops') }}</h1>
+        <h2>{{ trans('phrases.404_not_found') }}</h2>
         <div class="error-details">
-            Sorry, an error has occured, Requested page not found!
+        {{ trans('phrases.404_message') }}
         </div>
         <div class="error-actions">
             <a href="{{ route('web.homepage') }}" class="btn btn-primary btn-lg"><span class="glyphicon glyphicon-home"></span>
-                Take Me Home </a>
+                {{ trans('phrases.take_me_home') }}   </a>
         </div>
     </div>
 

@@ -1,11 +1,11 @@
 @extends('layouts.admin')
 
 @section('htmlheader_title')
-	Profile
+	{{ trans('words.my_profile') }}
 @endsection
 
 @section('contentheader_title')
-    Profile
+	{{ trans('words.my_profile') }}
 @endsection
 
 @section('sidebar')
@@ -25,20 +25,20 @@
 <table class="table">
 	@if($user->name != null)
 		<tr>
-			<td><i class="fa fa-user" aria-hidden="true"></i> Name</td>
+			<td><i class="fa fa-user" aria-hidden="true"></i> {{ trans('words.name') }}</td>
 			<td>{{$user->name}}</td>
 		</tr>
 	@endif
 
 
 	<tr>
-		<td><i class="fa fa-envelope" aria-hidden="true"></i> Email</td>
+		<td><i class="fa fa-envelope" aria-hidden="true"></i> {{ trans('words.email') }}</td>
 		<td>{{$user->email}}</td>
 	</tr>
 
 
 	<tr>
-		<td><i class="fa fa-calendar" aria-hidden="true"></i> Registered</td>
+		<td><i class="fa fa-calendar" aria-hidden="true"></i> {{ trans('words.registred') }}</td>
 		<td>{{ date('d.m.Y', strtotime($user->created_at)) }}</td>
 
 	</tr>

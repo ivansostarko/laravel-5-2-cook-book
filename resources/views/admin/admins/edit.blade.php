@@ -1,11 +1,11 @@
 @extends('layouts.admin')
 
 @section('htmlheader_title')
-    Edit Admin
+    {{ trans('words.edit_admin') }}
 @endsection
 
 @section('contentheader_title')
-    Edit Admin
+    {{ trans('words.edit_admin') }}
 @endsection
 
 @section('sidebar')
@@ -20,10 +20,10 @@
         {!! csrf_field() !!}
 
         <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
-            <label class="col-md-4 control-label">Name</label>
+            <label class="col-md-4 control-label">{{ trans('words.name') }}</label>
 
             <div class="col-md-6">
-                <input type="text" class="form-control" id="name" name="name" value="{{$admin ->name}}">
+                <input type="text" class="form-control" id="name" name="name" placeholder="{{ trans('words.name') }}" value="{{$admin ->name}}">
 
                 @if ($errors->has('name'))
                     <span class="help-block">
@@ -34,10 +34,10 @@
         </div>
 
         <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
-            <label class="col-md-4 control-label">E-Mail Address</label>
+            <label class="col-md-4 control-label">{{ trans('words.email') }}</label>
 
             <div class="col-md-6">
-                <input type="email" class="form-control" id="email" name="email" value="{{$admin ->email}}">
+                <input type="email" class="form-control" id="email" placeholder="{{ trans('words.email') }}" name="email" value="{{$admin ->email}}">
 
                 @if ($errors->has('email'))
                     <span class="help-block">
@@ -52,7 +52,7 @@
         <div class="form-group">
             <div class="col-md-6 col-md-offset-4">
                 <button type="submit" class="btn btn-primary">
-                    Register
+                    {{ trans('words.submit') }}
                 </button>
             </div>
         </div>
@@ -86,19 +86,19 @@
                     name: {
                         validators: {
                             notEmpty: {
-                                message: 'The Name is required'
+                                message: '{{ trans('validation.name_is_required') }}'
                             }
                         }
                     },
                     email: {
                         validators: {
                             notEmpty: {
-                                message: 'The Email is required'
+                                message: '{{ trans('validation.email_is_required') }}'
                             },
 
                             regexp: {
                                 regexp: '^[^@\\s]+@([^@\\s]+\\.)+[^@\\s]+$',
-                                message: 'The value is not a valid email address'
+                                message: '{{ trans('validation.email_invalid') }}'
                             }
                         }
                     }
