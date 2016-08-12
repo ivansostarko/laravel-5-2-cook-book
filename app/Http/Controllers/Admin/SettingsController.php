@@ -10,6 +10,7 @@ use Session;
 use Redirect;
 use App\Models;
 use Settings;
+use Toastr;
 
 
 
@@ -40,8 +41,8 @@ class SettingsController extends Controller
         Settings::set('google_analytics', $google_analytics);
         Settings::save();
 
-        Session::flash('message', 'Settings updated successfuly');
-        Session::flash('message_type', 'success');
+        Toastr::success('Settings updated successfuly', $title = null, $options = []);
+
         return redirect::to('/admin/settings');
     }
 }

@@ -165,6 +165,7 @@ return [
         MarcinOrlowski\ResponseBuilder\ResponseBuilderServiceProvider::class,
         Rap2hpoutre\LaravelLogViewer\LaravelLogViewerServiceProvider::class,
         Yajra\Datatables\DatatablesServiceProvider::class,
+        Kamaln7\Toastr\ToastrServiceProvider::class,
 
 
 
@@ -239,6 +240,7 @@ return [
         'JWTAuth' => Tymon\JWTAuth\Facades\JWTAuth::class,
         'JWTFactory' => Tymon\JWTAuth\Facades\JWTFactory::class,
         'Datatables' => Yajra\Datatables\Facades\Datatables::class,
+        'Toastr' => Kamaln7\Toastr\Facades\Toastr::class
 
 
 

@@ -26,7 +26,8 @@
         "predis/predis": "^1.1",
         "rap2hpoutre/laravel-log-viewer": "^0.7.0",
         "codeclimate/php-test-reporter": "dev-master",
-        "yajra/laravel-datatables-oracle": "~6.0"
+        "yajra/laravel-datatables-oracle": "~6.0",
+        "oriceon/toastr-5-laravel": "dev-master"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",
