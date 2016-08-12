@@ -239,7 +239,7 @@ class PasswordController extends Controller
             return $this->redirectPath;
         }
 
-        Session::flash('message', 'Lozinka uspje, unesite novi recept');
+        Session::flash('message', 'Password successfully updated');
         Session::flash('message_type', 'success');
         return property_exists($this, 'redirectTo') ? $this->redirectTo : '/items';
     }

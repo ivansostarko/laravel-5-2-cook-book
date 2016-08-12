@@ -30,7 +30,9 @@ return [
     'resend_verification_code_click' => 'Click here to verify your account',
     'verify_your_account' => 'Verify your account',
     'verify_your_account_click' => 'Click here to verify your account',
-    'welcome' => 'Welcome'
+    'welcome' => 'Welcome',
+    'item_deleted' => 'Item deleted successfully.',
+    'item_deleted_error' => 'Error while deleting item.'
 
 
 ];

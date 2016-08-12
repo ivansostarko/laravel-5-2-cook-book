@@ -66,12 +66,12 @@ class UsersController extends Controller
 
         if($save->save()){
             SendMail::send_welcome_mail($request->input('email'));
-            Session::flash('message', 'User registred successfully');
+            Session::flash('message', 'User created successfully');
             Session::flash('message_type', 'success');
             return redirect::to('/admin/users');
         }
         else {
-            Session::flash('message', 'Error while saving admin');
+            Session::flash('message', 'Error while saving user');
             Session::flash('message_type', 'danger');
             return redirect::to('/admin/users');
         }
@@ -91,11 +91,11 @@ class UsersController extends Controller
         }
 
         if ($delete->delete()) {
-            Session::flash('message', 'File deleted successfully');
+            Session::flash('message', 'User deleted successfully');
             Session::flash('message_type', 'success');
             return redirect::to('/admin/users');
         } else {
-            Session::flash('message', 'Error while deleting file');
+            Session::flash('message', 'Error while deleting user');
             Session::flash('message_type', 'danger');
             return redirect::to('/admin/users');
 
@@ -137,12 +137,12 @@ class UsersController extends Controller
 
 
         if($update->save()){
-            Session::flash('message', 'Profile updated successfully');
+            Session::flash('message', 'User updated successfully');
             Session::flash('message_type', 'success');
             return redirect::to('/admin/users');
         }
         else {
-            Session::flash('message', 'Error while updating profile');
+            Session::flash('message', 'Error while updating user');
             Session::flash('message_type', 'danger');
             return redirect::to('/admin/users');
 
@@ -189,12 +189,12 @@ class UsersController extends Controller
         $update->password = Hash::make($request->password);
 
         if($update->save()){
-            Session::flash('message', 'Password updated successfully');
+            Session::flash('message', 'Password updated successfully.');
             Session::flash('message_type', 'success');
             return redirect::to('/admin/users');
         }
         else{
-            Session::flash('message', 'Error while updating');
+            Session::flash('message', 'Error while updating password.');
             Session::flash('message_type', 'danger');
             return redirect::to('/admin/users');
         }
@@ -215,12 +215,12 @@ class UsersController extends Controller
         if($update->save()){
             //Send email to user
             SendMail::send_admin_verify($email['email']);
-            Session::flash('message', 'Verified');
+            Session::flash('message', 'User verified successfully.');
             Session::flash('message_type', 'success');
             return redirect::to('/admin/users');
         }
         else{
-            Session::flash('message', 'no Verified');
+            Session::flash('message', 'Problem with verification.');
             Session::flash('message_type', 'danger');
             return redirect::to('/admin/users');
         }
@@ -241,12 +241,12 @@ class UsersController extends Controller
         if($update->save()){
             //Send email to user
             SendMail::send_admin_ban($email['email']);
-            Session::flash('message', 'Account banned successfuly');
+            Session::flash('message', 'Account banned successfully');
             Session::flash('message_type', 'success');
             return redirect::to('/admin/users');
         }
         else{
-            Session::flash('message', 'no banned problem');
+            Session::flash('message', 'Error while banning user.');
             Session::flash('message_type', 'danger');
             return redirect::to('/admin/users');
         }
@@ -267,12 +267,12 @@ class UsersController extends Controller
         if($update->save()){
             //Send email to user
             SendMail::send_admin_unban($email['email']);
-            Session::flash('message', 'Account unbanned successfuly');
+            Session::flash('message', 'User unbanned successfuly');
             Session::flash('message_type', 'success');
             return redirect::to('/admin/users');
         }
         else{
-            Session::flash('message', 'no unbanned problem');
+            Session::flash('message', 'Problem with unbaning user.');
             Session::flash('message_type', 'danger');
             return redirect::to('/admin/users');
         }

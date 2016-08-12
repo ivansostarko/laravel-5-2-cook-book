@@ -40,7 +40,7 @@ class SettingsController extends Controller
         Settings::set('google_analytics', $google_analytics);
         Settings::save();
 
-        Session::flash('message', 'Settings saved successfuly');
+        Session::flash('message', 'Settings updated successfuly');
         Session::flash('message_type', 'success');
         return redirect::to('/admin/settings');
     }

@@ -11,6 +11,7 @@ use Image;
 use Redirect;
 use Session;
 use Activity;
+use Log;
 
 use OpenGraph;
 use Twitter;
@@ -119,11 +120,16 @@ class ItemsController extends Controller
 
         $delete = App\Models\Item::find($id);
         if ($delete->delete()) {
-            Session::flash('message', 'File deleted successfully');
+            $log_message = "User: " . Auth::user()->id . " deleted item " . $id;
+            Activity::log($log_message);
+            Log::info($log_message);
+
+            Session::flash('message', trans('phrases.item_deleted'));
             Session::flash('message_type', 'success');
             return redirect::to('/items');
         } else {
-            Session::flash('message', 'Error while deleting file');
+
+            Session::flash('message', 'Error while deleting item');
             Session::flash('message_type', 'danger');
             return redirect::to('/items');
 
@@ -183,14 +189,14 @@ class ItemsController extends Controller
             //Log Activity
             Activity::log('User created Item');
 
-            Session::flash('message', 'Sve ok');
+            Session::flash('message', 'Item successfully created');
             Session::flash('message_type', 'success');
             return redirect::to('/items');
 
 
         }
         else{
-            Session::flash('message', 'Error while updating profile');
+            Session::flash('message', 'Error while creating item');
             Session::flash('message_type', 'danger');
             return redirect::to('/items');
         }
@@ -247,14 +253,14 @@ class ItemsController extends Controller
 
         if($item->save())
         {
-            Session::flash('message', 'Sve ok');
+            Session::flash('message', 'Item successfully updated');
             Session::flash('message_type', 'success');
             return redirect::to('/items');
 
 
         }
         else{
-            Session::flash('message', 'Error while updating profile');
+            Session::flash('message', 'Error while updating item');
             Session::flash('message_type', 'danger');
             return redirect::to('/items');
         }

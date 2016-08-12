@@ -69,13 +69,13 @@ class AuthUserController extends Controller
             //Check if verified
             if (Auth::user()->verified == 0) {
                 auth()->guard('web')->logout();
-                Session::flash('message', 'Nije prijavljen kako treba verifikacija');
+                Session::flash('message', 'You must verify your account');
                 Session::flash('message_type', 'danger');
                 return redirect('/login')->withInput();
             } //Check if banned
             else if (Auth::user()->banned == 1) {
                 auth()->guard('web')->logout();
-                Session::flash('message', 'Korisnik je baniran');
+                Session::flash('message', 'You are banned');
                 Session::flash('message_type', 'danger');
                 return redirect('/login')->withInput();
             } else {
@@ -84,7 +84,7 @@ class AuthUserController extends Controller
 
         } else {
             //Invalid Credentials
-            Session::flash('message', 'Wrong podaci');
+            Session::flash('message', 'Invalid credentials');
             Session::flash('message_type', 'danger');
             return redirect('/login')->withInput();
         }
@@ -95,7 +95,7 @@ class AuthUserController extends Controller
     public function logout()
     {
         auth()->guard('web')->logout();
-        Session::flash('message', 'Uspješno ste odjabljeni');
+        Session::flash('message', 'You have been successfully logged out');
         Session::flash('message_type', 'success');
 
         return redirect('/login');
@@ -143,7 +143,7 @@ class AuthUserController extends Controller
         //Send mail with verification code
         SendMail::send_verification_mail($user);
 
-        Session::flash('message', 'Provjer imail za verifikaciju');
+        Session::flash('message', 'Verification code sent to your email.');
         Session::flash('message_type', 'success');
         return redirect('/login');
     }
@@ -187,7 +187,7 @@ class AuthUserController extends Controller
             SendMail::send_welcome_mail($request->input('email'));
 
 
-            Session::flash('message', 'User confirmed successfully');
+            Session::flash('message', 'User confirmed successfully.');
             Session::flash('message_type', 'success');
             return redirect::to('/login');
         }
@@ -258,7 +258,7 @@ class AuthUserController extends Controller
 
         //Check if user if banned
         if ($user['0']['banned'] == 1) {
-            Session::flash('message', 'Vaš račun je blokiran');
+            Session::flash('message', 'Your account has been banned.');
             Session::flash('message_type', 'danger');
 
             return redirect::to('/login');
@@ -266,7 +266,7 @@ class AuthUserController extends Controller
 
         //Check if user if verified
         if ($user['0']['verified'] == 1) {
-            Session::flash('message', 'Već ste verifikovani');
+            Session::flash('message', 'You are already verified.');
             Session::flash('message_type', 'danger');
 
             return redirect::to('/login');
@@ -284,12 +284,12 @@ class AuthUserController extends Controller
         //Save token
         if ($update_token->save()) {
             SendMail::send_resend_verification_mail($email, $generate_token);
-            Session::flash('message', 'Provjeri mail sve bi trebalo biti ok');
+            Session::flash('message', 'Verification code sent to your email.');
             Session::flash('message_type', 'success');
 
             return redirect::to('/login');
         } else {
-            Session::flash('message', 'Nastala je greška kod slanja verifikacije mail sve bi trebalo biti ok');
+            Session::flash('message', 'Error while sending verification code.');
             Session::flash('message_type', 'danger');
 
             return redirect::to('/login');

@@ -104,12 +104,12 @@ class ProfileController extends Controller
         $update->password = Hash::make($request->password);
 
         if($update->save()){
-            Session::flash('message', 'Password updated successfully');
+            Session::flash('message', 'Password updated successfully.');
             Session::flash('message_type', 'success');
             return redirect::to('/admin/profile');
         }
         else{
-            Session::flash('message', 'Error while updating');
+            Session::flash('message', 'Error while updating password.');
             Session::flash('message_type', 'danger');
             return redirect::to('/admin/profile');
         }

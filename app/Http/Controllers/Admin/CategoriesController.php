@@ -74,12 +74,12 @@ class CategoriesController extends Controller
         }
 
         if($save->save()){
-            \Session::flash('message', 'User registred successfully');
+            \Session::flash('message', 'Category created successfully.');
             \Session::flash('message_type', 'success');
             return redirect::to('/admin/categories');
         }
         else {
-            \Session::flash('message', 'Error while saving admin');
+            \Session::flash('message', 'Error while creating category.');
             \Session::flash('message_type', 'danger');
             return redirect::to('/admin/categories');
         }
@@ -99,11 +99,11 @@ class CategoriesController extends Controller
 
 
         if ($delete->delete()) {
-            Session::flash('message', 'File deleted successfully');
+            Session::flash('message', 'Category deleted successfully');
             Session::flash('message_type', 'success');
             return redirect::to('/admin/categories');
         } else {
-            Session::flash('message', 'Error while deleting file');
+            Session::flash('message', 'Error while deleting category');
             Session::flash('message_type', 'danger');
             return redirect::to('/admin/categories');
 
@@ -159,12 +159,12 @@ class CategoriesController extends Controller
 
 
         if($update->save()){
-            Session::flash('message', 'Profile updated successfully');
+            Session::flash('message', 'Category updated successfully');
             Session::flash('message_type', 'success');
             return redirect::to('/admin/categories');
         }
         else {
-            Session::flash('message', 'Error while updating profile');
+            Session::flash('message', 'Error while updating category');
             Session::flash('message_type', 'danger');
             return redirect::to('/admin/categories');
 

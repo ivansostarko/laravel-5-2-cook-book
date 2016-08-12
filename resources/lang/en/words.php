@@ -1,8 +1,6 @@
 <?php
 
 return [
-
-
     'homepage' => 'Homepage',
     'login'     => 'Login',
     'logout' => 'Logout',

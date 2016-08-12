@@ -98,7 +98,7 @@ use App\Helpers\SendMail;
               return redirect::to('/profile');
           }
           else{
-              Session::flash('message', 'Error while updating');
+              Session::flash('message', 'Error while updating password');
               Session::flash('message_type', 'danger');
               return redirect::to('/profile');
           }

@@ -47,12 +47,12 @@ class AdminsController extends Controller
         $save->email=$request->input('email');
         $save->password = Hash::make($request->password);
         if($save->save()){
-            Session::flash('message', 'Admin registred successfully');
+            Session::flash('message', 'Admin created successfully');
             Session::flash('message_type', 'success');
             return redirect::to('/admin/admins');
         }
         else {
-            Session::flash('message', 'Error while saving admin');
+            Session::flash('message', 'Error while creating admin');
             Session::flash('message_type', 'danger');
             return redirect::to('/admin/admins');
         }
@@ -66,11 +66,11 @@ class AdminsController extends Controller
     public function destroy($id){
         $delete = App\Admin::find($id);
         if ($delete->delete()) {
-            Session::flash('message', 'File deleted successfully');
+            Session::flash('message', 'Admin deleted successfully');
             Session::flash('message_type', 'success');
             return redirect::to('/admin/admins');
         } else {
-            Session::flash('message', 'Error while deleting file');
+            Session::flash('message', 'Error while deleting admin');
             Session::flash('message_type', 'danger');
             return redirect::to('/admin/admins');
         }
@@ -96,12 +96,12 @@ class AdminsController extends Controller
         $update->name=$request->input('name');
         $update->email=$request->input('email');
         if($update->save()){
-            Session::flash('message', 'Profile updated successfully');
+            Session::flash('message', 'Admin updated successfully');
             Session::flash('message_type', 'success');
             return redirect::to('/admin/admins');
         }
         else {
-            Session::flash('message', 'Error while updating profile');
+            Session::flash('message', 'Error while updating admin');
             Session::flash('message_type', 'danger');
             return redirect::to('/admin/admins');
         }
@@ -119,7 +119,7 @@ class AdminsController extends Controller
             return redirect::to('/admin/admins');
         }
         else{
-            Session::flash('message', 'Error while updating');
+            Session::flash('message', 'Error while updating password');
             Session::flash('message_type', 'danger');
             return redirect::to('/admin/admins');
         }

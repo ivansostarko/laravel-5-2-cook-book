@@ -88,11 +88,11 @@ class ItemsController extends Controller
 
 
         if ($delete->delete()) {
-            Session::flash('message', 'File deleted successfully');
+            Session::flash('message', 'Item deleted successfully');
             Session::flash('message_type', 'success');
             return redirect::to('/admin/items');
         } else {
-            Session::flash('message', 'Error while deleting file');
+            Session::flash('message', 'Error while deleting item');
             Session::flash('message_type', 'danger');
             return redirect::to('/admin/items');
 
@@ -153,14 +153,14 @@ class ItemsController extends Controller
 
         if($update->save())
         {
-            Session::flash('message', 'Sve ok');
+            Session::flash('message', 'Item updated successfully.');
             Session::flash('message_type', 'success');
             return redirect::to('/admin/items');
 
 
         }
         else{
-            Session::flash('message', 'Error while updating profile');
+            Session::flash('message', 'Error while updating item.');
             Session::flash('message_type', 'danger');
             return redirect::to('/admin/items');
         }

@@ -55,7 +55,7 @@ class AuthApiController extends Controller
             SendMail::send_welcome_mail($request->input('email'));
             return ResponseBuilder::success();
         } else {
-            $message = "Problem with saving user";
+            $message = "Problem with creating user";
             return ResponseBuilder::errorWithMessage(App\Helpers\ErrorCode::ERROR_500, $message);
         }
 
@@ -92,7 +92,7 @@ class AuthApiController extends Controller
             } else {
 
                 //If faild
-                $message = "Problem with";
+                $message = "Problem with updating password";
                 return ResponseBuilder::errorWithMessage(App\Helpers\ErrorCode::ERROR_500, $message);
             }
 
