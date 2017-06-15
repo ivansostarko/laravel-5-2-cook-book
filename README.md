@@ -6,23 +6,15 @@
 [![Code Climate](https://codeclimate.com/github/IvanSostarko/laravel-5-2-cook-book/badges/gpa.svg)](https://codeclimate.com/github/IvanSostarko/laravel-5-2-cook-book)
 [![license](https://img.shields.io/github/license/mashape/apistatus.svg?maxAge=2592000)](https://github.com/IvanSostarko/laravel-5-2-cook-book/blob/master/LICENSEE)
 
-## Online demo
-[http://demo.ivan-sostarko.com/cookbook/](http://demo.ivan-sostarko.com/cookbook/)
 
 ## Mobile App
 Check Mobile App for this project: [https://github.com/IvanSostarko/ionic2-cookbook](https://github.com/IvanSostarko/ionic2-cookbook)
 
 ## Demo User
 ![](https://raw.githubusercontent.com/IvanSostarko/laravel-5-2-cook-book/master/public/images/screen1.jpg)
-* [Login here](http://demo.ivan-sostarko.com/cookbook/login)
-* Email: user@ivan-sostarko.com
-* Password: gpr8g103
 
 ## Demo Admin 
 ![](https://raw.githubusercontent.com/IvanSostarko/laravel-5-2-cook-book/master/public/images/screen2.jpg)
-* [Login here](http://demo.ivan-sostarko.com/cookbook/login)
-* Email: admin@ivan-sostarko.com
-* Password: gpr8g103
 
 ## Wiki
 * [Installation](https://github.com/IvanSostarko/laravel-5-2-cook-book/wiki/Installation)
