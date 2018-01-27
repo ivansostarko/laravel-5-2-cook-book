@@ -1,4 +1,6 @@
 # Laravel 5.2 CookBook
+
+[![Greenkeeper badge](https://badges.greenkeeper.io/IvanSostarko/laravel-5-2-cook-book.svg)](https://greenkeeper.io/)
 > Simple CookBook Web App with RESTful API.
 > This is built on Laravel Framework 5.2.
 
