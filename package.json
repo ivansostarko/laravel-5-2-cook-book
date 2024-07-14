@@ -8,7 +8,7 @@
     "test": "tests"
   },
   "dependencies": {
-    "bootstrap": "^3.3.6",
+    "bootstrap": "^5.0.0",
     "bootstrap-sass": "^3.3.6",
     "bootstrap-validator": "^0.10.2",
     "cd-font-awesome": "0.0.1",
